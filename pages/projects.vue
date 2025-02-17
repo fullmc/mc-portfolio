@@ -1,3 +1,8 @@
+<script setup lang="ts">
+
+
+</script>
+
 <template>
   <div class="h-screen bg-background-light dark:bg-background-dark text-primary-light dark:text-primary-dark flex flex-col justify-center">
 

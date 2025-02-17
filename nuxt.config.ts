@@ -35,5 +35,8 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
-  }
+  },
+  css: [
+    'primeicons/primeicons.css',
+  ],
 })
