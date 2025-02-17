@@ -18,14 +18,23 @@
     "@nuxtjs/google-fonts": "3.2.0",
     "@nuxtjs/i18n": "^9.2.0",
     "@nuxtjs/tailwindcss": "6.13.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dayjs-nuxt": "2.1.11",
     "eslint": "^9.0.0",
     "gsap": "^3.12.7",
+    "init": "^0.1.2",
+    "lucide-vue-next": "^0.475.0",
     "nuxt": "^3.15.4",
+    "radix-vue": "^1.9.14",
+    "shadcn": "^2.3.0",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "prettier": "3.5.0"
+    "prettier": "3.5.0",
+    "shadcn-nuxt": "^0.11.3"
   }
 }

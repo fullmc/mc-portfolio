@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background-light dark:bg-background-dark h-full px-16 py-8">
+  <div class="bg-background-light dark:bg-background-dark min-h-screen px-16 py-8">
     <Navbar />
     <div>
       <NuxtPage />

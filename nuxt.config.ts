@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode', // active le mode couleur
     '@nuxtjs/google-fonts', // active google fonts
     '@nuxtjs/i18n', // active i18n pour les traductions
+    'shadcn-nuxt'
   ],
   i18n: {
     strategy: 'prefix_except_default',
@@ -25,5 +26,14 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en-US' },
       { code: 'fr', language: 'fr-FR' }
     ],
+  },
+  shadcn: {
+
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
   }
 })
