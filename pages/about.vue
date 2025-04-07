@@ -78,9 +78,9 @@ onMounted(() => {
 
 <template>
   <div
-    class="mt-8 bg-background-light dark:bg-background-dark text-primary-light dark:text-primary-dark flex flex-col justify-center ">
+    class="mt-8 bg-background-light dark:bg-background-dark flex flex-col justify-center ">
     <div>
-      <h1 class="typing-title text-[74px] font-light text-primary-light dark:text-secondary-dark pb-4">
+      <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark pb-4">
         à
         <span v-for="(char, index) in 'propos...'" :key="index" class="split-char inline-block mr-[0.05em]">
           {{ char }}
@@ -98,7 +98,7 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-medium text-primary-light dark:text-secondary-dark">💡 Ce qui me motive</h3>
+                <h3 class="text-xl font-normal text-primary-light dark:text-secondary-dark">💡 Ce qui me motive</h3>
                 <div class="space-y-2">
                   <p>C'est comprendre les besoins, apporter des solutions concrètes, corriger des bugs, et parfois
                     repenser entièrement une interface, la faire évoluer, pour la rendre plus moderne et efficace.</p>
@@ -110,7 +110,7 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-medium text-primary-light dark:text-secondary-dark">🌍 En dehors du code ?</h3>
+                <h3 class="text-xl font-normal text-primary-light dark:text-secondary-dark">🌍 Et en dehors du code ?</h3>
                 <div class="space-y-2">
                   <p>Je suis animée par la découverte : j'aime énormément <strong>voyager</strong>,
                     <strong>échanger</strong>, <strong>m'ouvrir</strong> à de nouveaux points de vue, à travers les

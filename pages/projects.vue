@@ -118,7 +118,7 @@ onMounted(() => {
 </script>
 <template>
   <div>
-    <h1 class="projects-title text-[74px] font-light text-primary-light dark:text-secondary-dark py-8">
+    <h1 class="projects-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark py-8">
       mes projets
     </h1>
 

@@ -9,7 +9,7 @@
         :delay="200"
         class="mb-16 text-center"
       >
-        <h1 class="text-5xl font-medium mb-6 dark:text-secondary-dark text-secondary-dark tracking-wider">Contactez-moi</h1>
+        <h1 class="text-5xl font-medium mb-6 dark:text-secondary-dark text-secondary-light tracking-wider">Contactez-moi</h1>
         <p class="text-xl text-gray-400 max-w-2xl mx-auto">
           pour discuter de votre projet.
         </p>
@@ -18,7 +18,7 @@
       <!-- Formulaire avec animation GSAP -->
       <div 
         ref="formContainer"
-        class="max-w-md mx-auto p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 relative overflow-hidden group"
+        class="max-w-md mx-auto p-8 rounded-2xl dark:bg-white/5 border-black/10 bg-secondary-light/10 backdrop-blur-sm border dark:border-white/10 relative overflow-hidden group"
       >
         <!-- Effet de brillance au hover -->
         <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
@@ -52,7 +52,7 @@
 
           <button 
             type="submit"
-            class="mt-4 bg-primary-light dark:bg-primary-dark text-background-light dark:text-background-dark py-4 px-8 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg relative overflow-hidden group"
+            class="mt-4 bg-secondary-light dark:bg-primary-dark text-background-light dark:text-background-dark py-4 px-8 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg relative overflow-hidden group"
           >
             <span class="relative z-10">Envoyer</span>
             <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
