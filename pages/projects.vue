@@ -18,6 +18,26 @@ interface Project {
 
 const projects = ref<Project[]>([
   {
+    title: "Orbital",
+    description: "Description du projet 1",
+    media: {
+      type: 'video',
+      url: '/orbital.mp4'
+    },
+    technologies: ["ThreeJs", "HTML", "CSS", "JavaScript"],
+    link: "https://threenception.vercel.app/"
+  },
+  {
+    title: "EnigmaQuest",
+    description: "Description du projet 1",
+    media: {
+      type: 'video',
+      url: '/socketgame.mp4'
+    },
+    technologies: ["Socket.io", "VueJS", "ExpressJS", "NodeJS"],
+    link: "https://github.com/fullmc/socket-game"
+  },
+  {
     title: "Vortex",
     description: "Description du projet 1",
     media: {
