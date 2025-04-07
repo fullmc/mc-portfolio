@@ -28,6 +28,16 @@ const projects = ref<Project[]>([
     link: "https://threenception.vercel.app/"
   },
   {
+    title: "EnigmaQuest",
+    description: "Description du projet 1",
+    media: {
+      type: 'video',
+      url: '/socketgame.mp4'
+    },
+    technologies: ["Socket.io", "VueJS", "ExpressJS", "NodeJS"],
+    link: "https://github.com/fullmc/socket-game"
+  },
+  {
     title: "Vortex",
     description: "Description du projet 1",
     media: {
