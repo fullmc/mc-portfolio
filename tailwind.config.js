@@ -17,11 +17,15 @@ export default {
         },
         'secondary': {
           DEFAULT: "#F7F197",
-          dark: "#F7F197",
+          dark: "#D8CBB7",
           light: "#E03047"
         },
       }
     }
   },
   plugins: [],
-} 
+}
+
+// #E8D9B9
+// #E6E0C3
+// #D8CBB7

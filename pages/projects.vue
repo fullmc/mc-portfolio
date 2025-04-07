@@ -116,11 +116,10 @@ onMounted(() => {
   });
 })
 </script>
-
 <template>
-  <div class="min-h-screen py-20">
-    <h1 class="projects-title text-[84px] font-extrabold text-secondary-light dark:text-secondary-dark mb-20">
-      mes projets.
+  <div>
+    <h1 class="projects-title text-[74px] font-light text-primary-light dark:text-secondary-dark py-8">
+      mes projets
     </h1>
 
     <div class="flex items-center flex-wrap gap-12">
@@ -174,6 +173,5 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
 <style scoped>
 </style>
