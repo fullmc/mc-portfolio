@@ -66,6 +66,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import gsap from 'gsap'
+const config = useRuntimeConfig()
+console.log('test',config.public.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID)
 
 const formContainer = ref(null)
 
@@ -92,9 +94,9 @@ const sendEmail = async () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        service_id: 'YOUR_SERVICE_ID',
-        template_id: 'YOUR_TEMPLATE_ID',
-        user_id: 'YOUR_PUBLIC_KEY',
+        service_id: "service_o5es8bw",
+        template_id: "template_46zwuqq",
+        user_id: "8HeOXfq-dliPqyC1R",
         template_params: {
           to_email: 'mclambo60@gmail.com',
           from_email: formData.value.email,

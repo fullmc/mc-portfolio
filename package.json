@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@heroicons/vue": "^2.2.0",
     "@intlify/message-compiler": "^11.1.3",
     "@nuxt/eslint": "1.0.1",
