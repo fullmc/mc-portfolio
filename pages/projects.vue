@@ -18,6 +18,16 @@ interface Project {
 
 const projects = ref<Project[]>([
   {
+    title: "Orbital",
+    description: "Description du projet 1",
+    media: {
+      type: 'video',
+      url: '/orbital.mp4'
+    },
+    technologies: ["ThreeJs", "HTML", "CSS", "JavaScript"],
+    link: "https://threenception.vercel.app/"
+  },
+  {
     title: "Vortex",
     description: "Description du projet 1",
     media: {
