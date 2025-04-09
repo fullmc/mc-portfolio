@@ -69,7 +69,7 @@ onMounted(() => {
     y: 50,
     opacity: 0,
     stagger: 0.2,
-    delay: 0.1c,
+    delay: 0.1,
     ease: "power2.out"
   });
 });
