@@ -16,34 +16,36 @@ const switchLanguage = () => {
   setLocale(newLocale);
 };
 
-// link en gras 
 const isActive = (path: string) => {
-  return localePath(path) === route.path;
+  return {
+    active: localePath(path) === route.path,
+    style: localePath(path) === route.path ? 'font-medium' : 'font-light'
+  };
 };
 
 </script>
 
 <template>
 
-  <div class="bg-background-light dark:bg-background-dark dark:text-primary-dark text-primary-light flex justify-between items-center">
+  <div class=" dark:text-primary-dark text-primary-light flex justify-between items-center">
     <NuxtLink to="/">
       <div class="border-b border-primary-light dark:border-primary-dark flex items-center justify-center">
         <img src="/mcmoji.png" alt="logo" class="w-12" />
       </div>
       <h1>MC LAMBO</h1>
     </NuxtLink>
-    <div class="flex gap-24">
+    <div class="flex gap-[8em] rounded-full border border-secondary-dark dark:border-secondary-light px-[6em] py-4 text-lg tracking-wider">
       <NuxtLink :to="localePath('about')" :class="[
         'hover:text-xl transition-all duration-300',
-        { 'font-bold cursor-pointer': isActive('about')}
+        isActive('about').style
       ]">{{ $t('about_link') }}</NuxtLink>
       <NuxtLink :to="localePath('projects')" :class="[
         'hover:text-xl transition-all duration-300',
-        { 'font-bold cursor-pointer': isActive('projects') }
+        isActive('projects').style
       ]">{{ $t('projects_link') }}</NuxtLink>
       <NuxtLink :to="localePath('contact')" :class="[
         'hover:text-xl transition-all duration-300',
-        { 'font-bold cursor-pointer': isActive('contact') }
+        isActive('contact').style
       ]">{{ $t('contact_link') }}</NuxtLink>
     </div>
     <div class="flex gap-4 items-center">
@@ -52,7 +54,10 @@ const isActive = (path: string) => {
         <SunIcon v-else class="w-6 h-6" />
       </button>
       <span><img src="/line.svg" alt="fr" class="w-6 h-6 dark:invert" /></span>
-      <button @click="switchLanguage">{{ locale.toUpperCase() }}</button>
+      <button @click="switchLanguage">
+        <img v-if="locale === 'fr'" src="/france.png" alt="fr" class="w-6 h-6" />
+        <img v-else src="/uk.png" alt="en" class="w-6 h-6" />
+      </button>
     </div>
   </div>
 </template>
