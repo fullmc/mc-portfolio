@@ -4,15 +4,16 @@ import { MoonIcon } from "@heroicons/vue/24/solid";
 
 const route = useRoute();
 const colorMode = useColorMode();
-const { locale, t } = useI18n();
 const localePath = useLocalePath();
+const { locales, locale, setLocale } = useI18n();
 
 const toggleMode = () => {
   colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
 };
 
 const switchLanguage = () => {
-  locale.value = locale.value === 'en' ? 'fr' : 'en';
+  const newLocale = locale.value === 'fr' ? 'en' : 'fr';
+  setLocale(newLocale);
 };
 
 // link en gras 
@@ -23,6 +24,7 @@ const isActive = (path: string) => {
 </script>
 
 <template>
+
   <div class="bg-background-light dark:bg-background-dark dark:text-primary-dark text-primary-light flex justify-between items-center">
     <NuxtLink to="/">
       <div class="border-b border-primary-light dark:border-primary-dark flex items-center justify-center">
@@ -33,16 +35,16 @@ const isActive = (path: string) => {
     <div class="flex gap-24">
       <NuxtLink :to="localePath('about')" :class="[
         'hover:text-xl transition-all duration-300',
-        { 'font-bold cursor-pointer': isActive('about') }
-      ]">{{ t('À propos') }}</NuxtLink>
+        { 'font-bold cursor-pointer': isActive('about')}
+      ]">{{ $t('about_link') }}</NuxtLink>
       <NuxtLink :to="localePath('projects')" :class="[
         'hover:text-xl transition-all duration-300',
         { 'font-bold cursor-pointer': isActive('projects') }
-      ]">{{ t('Mes projets') }}</NuxtLink>
+      ]">{{ $t('projects_link') }}</NuxtLink>
       <NuxtLink :to="localePath('contact')" :class="[
         'hover:text-xl transition-all duration-300',
         { 'font-bold cursor-pointer': isActive('contact') }
-      ]">{{ t('Contact') }}</NuxtLink>
+      ]">{{ $t('contact_link') }}</NuxtLink>
     </div>
     <div class="flex gap-4 items-center">
       <button @click="toggleMode">

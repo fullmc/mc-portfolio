@@ -21,11 +21,25 @@ export default defineNuxtConfig({
     'shadcn-nuxt'
   ],
   i18n: {
+    lazy: true,
+    langDir: 'locales',
     strategy: 'prefix_except_default',
     locales: [
-      { code: 'en', language: 'en-US' },
-      { code: 'fr', language: 'fr-FR' }
+      {
+        code: 'fr',
+        iso: 'fr',
+        name: 'Français',
+        file: 'fr.json'
+      },
+      {
+        code: 'en',
+        iso: 'en',
+        name: 'English',
+        file: 'en-GB.json'
+      }
     ],
+    defaultLocale: 'fr',
+    vueI18n: 'fr'
   },
   shadcn: {
 
