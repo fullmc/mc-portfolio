@@ -69,7 +69,7 @@ onMounted(() => {
     y: 50,
     opacity: 0,
     stagger: 0.2,
-    delay: 2,
+    delay: 0.1c,
     ease: "power2.out"
   });
 });
@@ -81,16 +81,12 @@ onMounted(() => {
     class="mt-8 bg-background-light dark:bg-background-dark flex flex-col justify-center ">
     <div>
       <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark pb-4">
-        à
-        <span v-for="(char, index) in 'propos...'" :key="index" class="split-char inline-block mr-[0.05em]">
-          {{ char }}
-        </span>
+        à propos
       </h1>
-      <div class="flex items-center">
-        <div class="flex flex-col">
-          <div
-            class="flex flex-col gap-8 text-[20px] md:text-[18px] sm:text-[16px] font-light leading-[1.8] text-primary-light dark:text-primary-dark">
-            <div class="presentation-text space-y-10">
+      <div class="flex items-center justify-between flex-wrap flex-nowrap-custom">
+        <div class="flex-col">
+          <div class="gap-8 text-[20px] md:text-[18px] sm:text-[16px] font-light leading-[1.8] text-primary-light dark:text-primary-dark">
+            <div class="presentation-text space-y-10 mr-32">
               <div>
                 <p>Mon parcours a commencé dans les ressources humaines, avant de prendre un tournant inattendu vers le
                   développement web. Après plusieurs formations en autodidacte, j'ai intégré une école spécialisée pour
@@ -135,6 +131,12 @@ onMounted(() => {
   --text-color: #003049;
   color: #003049;
   border: 1px solid var(--secondary-dark) !important;
+}
+
+@media (min-width: 1295px) {
+  .flex-nowrap-custom {
+    flex-wrap: nowrap;
+  }
 }
 
 html.dark .p-tooltip .p-tooltip-text {
