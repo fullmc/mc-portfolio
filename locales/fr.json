@@ -1,0 +1,29 @@
+{
+  "home": {
+    "hi": "Coucou \uD83D\uDC4B\uD83C\uDFFE Je suis Marie-Claire,",
+    "dev": "Développeuse front-end",
+    "cv": "Télécharger mon CV"
+  },
+  "about": {
+    "about": "À propos",
+    "title": "à propos...",
+    "intro": "Mon parcours a commencé dans les ressources humaines, avant de prendre un tournant inattendu vers le développement web. Après plusieurs formations en autodidacte, j'ai intégré une école spécialisée pour approfondir mes compétences, et aujourd'hui, je m'épanouis pleinement dans ce domaine.",
+    "motiveTitle": "\uD83D\uDCA1 Ce qui me motive",
+    "motive": "C'est comprendre les besoins, apporter des solutions concrètes, corriger des bugs, et parfois repenser entièrement une interface, la faire évoluer, pour la rendre plus moderne et efficace.\n\nEn général, je suis plutôt observatrice. J'aime prendre le temps de comprendre, écouter, poser les bonnes questions, communiquer (!). J'ai besoin d'un environnement bienveillant et de confiance pour m'exprimer pleinement, et quand c'est le cas, je suis super impliquée, et toujours partante pour collaborer.",
+    "outsideTitle": "\uD83C\uDF0D Et en dehors du code?",
+    "outside": "Je suis animée par la découverte : j'aime énormément voyager, échanger, m'ouvrir à de nouveaux points de vue, à travers les discussions, la lecture ou les expériences de vie. Globalement, j'aime apprendre des autres et explorer tout ce qui peut enrichir ma vision du monde."
+  },
+  "contact": {
+    "contact": "Contact",
+    "contactMe": "Contactez-moi",
+    "email": "votre@email.com",
+    "desc": "Décrivez votre projet...",
+    "send": "Envoyer"
+  },
+  "projects": {
+    "projects": "Projets",
+    "myProjects": "Mes projets",
+    "view": "Voir le projet"
+  }
+}
+

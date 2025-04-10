@@ -1,0 +1,28 @@
+{
+  "home": {
+    "hi": "Hi \uD83D\uDC4B\uD83C\uDFFE I'm Marie-Claire,",
+    "dev": "Frontend Developer" ,
+    "cv": "Download my CV"
+  },
+  "about": {
+    "about": "About",
+    "title": "About me",
+    "intro": "My career path began in human resources, before taking an unexpected turn towards web development. After several self-taught training courses, I joined a specialized school to further my skills, and today, I thrive in this field.",
+    "motiveTitle": "\uD83D\uDCA1 What motivates me",
+    "motive": "It's understanding needs, providing concrete solutions, fixing bugs, and sometimes completely rethinking an interface, making it evolve, to make it more modern and efficient.\\n\\nIn general, I'm quite observant. I like to take the time to understand, listen, ask the right questions, communicate (!). I need a caring and trusting environment to fully express myself, and when I have it, I'm super involved, and always ready to collaborate.",
+    "outsideTitle": "\uD83C\uDF0D And outside of coding?",
+    "outside": "I am driven by discovery: I love traveling, sharing, and opening myself up to new points of view, through discussions, reading, or life experiences. Overall, I love learning from others and exploring anything that can enrich my vision of the world."
+  },
+  "contact": {
+    "contact": "Contact",
+    "contactMe": "Contact me",
+    "email": "you@email.com",
+    "desc": "Describe your project",
+    "send": "Send"
+  },
+  "projects": {
+    "projects": "Projects",
+    "myProjects": "My projects",
+    "view": "View the project"
+}
+}
