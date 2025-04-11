@@ -95,6 +95,7 @@ onMounted(() => {
                 <h3 class="text-xl font-normal text-primary-light dark:text-background-light">💡 {{ $t('about_motiveTitle') }}</h3>
                 <div class="space-y-2">
                   <p>{{ $t('about_motive') }}</p>
+                  <p>{{ $t('about_working') }}</p>
                 </div>
               </div>
 
