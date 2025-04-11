@@ -1,6 +1,8 @@
 {
   "about_link": "about",
-  "projects_link": "projects",
+  "home_link": "home",
+  "resume_link": "resume",
+  "projects_link": "work",
   "contact_link": "contact",
   "home_hi": "Hi \uD83D\uDC4B\uD83C\uDFFE I'm Marie-Claire,",
   "home_dev": "Frontend\nDeveloper",

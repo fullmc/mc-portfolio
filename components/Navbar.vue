@@ -19,7 +19,7 @@ const switchLanguage = () => {
 const isActive = (path: string) => {
   return {
     active: localePath(path) === route.path,
-    style: localePath(path) === route.path ? 'font-medium' : 'font-light'
+    style: localePath(path) === route.path ? 'font-normal underline underline-offset-8' : 'font-light'
   };
 };
 
@@ -34,11 +34,19 @@ const isActive = (path: string) => {
       </div>
       <p class="text-xs font-thin pt-1">MC LAMBO</p>
     </NuxtLink>
-    <div class="flex gap-[8em] rounded-full border border-secondary-dark dark:border-secondary-light px-[6em] py-4 text-lg tracking-wider">
-      <NuxtLink :to="localePath('about')" :class="[
+    <div class="flex gap-[3em] text-lg tracking-wider">
+      <!-- <NuxtLink :to="localePath('about')" :class="[
         'hover:text-xl transition-all duration-300',
         isActive('about').style
-      ]">{{ $t('about_link') }}</NuxtLink>
+      ]">{{ $t('about_link') }}</NuxtLink> -->
+      <NuxtLink :to="localePath('/')" :class="[
+        'hover:text-xl transition-all duration-300',
+        isActive('home').style
+      ]">{{ $t('home_link') }}</NuxtLink>
+      <NuxtLink :to="localePath('resume')" :class="[
+        'hover:text-xl transition-all duration-300',
+        isActive('resume').style
+      ]">{{ $t('resume_link') }}</NuxtLink>
       <NuxtLink :to="localePath('projects')" :class="[
         'hover:text-xl transition-all duration-300',
         isActive('projects').style
