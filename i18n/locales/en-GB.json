@@ -1,7 +1,7 @@
 {
-  "about_link": "About",
-  "projects_link": "Projects",
-  "contact_link": "Contact",
+  "about_link": "about",
+  "projects_link": "projects",
+  "contact_link": "contact",
   "home_hi": "Hi \uD83D\uDC4B\uD83C\uDFFE I'm Marie-Claire,",
   "home_dev": "Frontend\nDeveloper",
   "home_cv": "Download my CV",
@@ -14,7 +14,7 @@
   "about_outside": "I am driven by discovery: I love traveling, sharing, and opening myself up to new points of view, through discussions, reading, or life experiences. Overall, I love learning from others and exploring anything that can enrich my vision of the world.",
   "my_projects": "my projects",
   "view": "View",
-  "contact": "Contact me",
+  "contact": "contact me",
   "contact_text": "and let's talk about your project.",
   "desc": "Describe your project...",
   "send": "Send"

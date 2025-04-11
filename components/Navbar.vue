@@ -32,7 +32,7 @@ const isActive = (path: string) => {
       <div class="border-b border-primary-light dark:border-primary-dark flex items-center justify-center">
         <img src="/mcmoji.png" alt="logo" class="w-12" />
       </div>
-      <p class="text-xs font-thin">MC LAMBO</p>
+      <p class="text-xs font-thin pt-1">MC LAMBO</p>
     </NuxtLink>
     <div class="flex gap-[8em] rounded-full border border-secondary-dark dark:border-secondary-light px-[6em] py-4 text-lg tracking-wider">
       <NuxtLink :to="localePath('about')" :class="[

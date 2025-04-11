@@ -157,7 +157,7 @@ onMounted(() => {
               </div>
               <a :href="project.link" 
                 target="_blank"
-                class="inline-flex items-center text-white hover:font-bold dark:hover:text-secondary-dark">
+                class="inline-flex items-center text-white hover:font-bold">
                   {{ $t('view') }}
                 <svg xmlns="http://www.w3.org/2000/svg" 
                   class="h-5 w-5 ml-2" 

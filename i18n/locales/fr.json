@@ -1,7 +1,7 @@
 {
-  "about_link": "À propos",
-  "projects_link": "Projets",
-  "contact_link": "Contact",
+  "about_link": "à propos",
+  "projects_link": "projets",
+  "contact_link": "contact",
   "home_hi": "Coucou \uD83D\uDC4B\uD83C\uDFFE Je suis Marie-Claire,",
   "home_dev": "Développeuse\nfront-end",
   "home_cv": "Télécharger mon CV",
@@ -13,8 +13,8 @@
   "about_outsideTitle": "Et en dehors du code?",
   "about_outside": "Je suis animée par la découverte : j'aime énormément voyager, échanger, m'ouvrir à de nouveaux points de vue, à travers les discussions, la lecture ou les expériences de vie. Globalement, j'aime apprendre des autres et explorer tout ce qui peut enrichir ma vision du monde.",
   "my_projects": "mes projets",
-  "view": "Voir le projet",
-  "contact": "Contactez-moi",
+  "view": "Voir",
+  "contact": "contactez-moi",
   "contact_text": "et discutons de votre projet.",
   "desc": "Décrivez votre projet...",
   "send": "Envoyer"
