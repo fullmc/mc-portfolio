@@ -72,56 +72,8 @@ function init() {
     sprite.scale.set(2, 2, 1);
     group.add(sprite);
 
-    // Ajout du nom de la technologie
-    // const canvas = document.createElement('canvas');
-    // const context = canvas.getContext('2d');
-    // canvas.width = 256;
-    // canvas.height = 64;
-    // context.fillStyle = '#000000';
-    // context.font = '24px Arial';
-    // context.textAlign = 'center';
-    // context.fillText(tech.name, 128, 32);
-
-    // const labelTexture = new THREE.CanvasTexture(canvas);
-    // const labelMaterial = new THREE.SpriteMaterial({ 
-    //   map: labelTexture,
-    //   transparent: true,
-    //   opacity: 0.9
-    // });
-    // const label = new THREE.Sprite(labelMaterial);
-    // label.position.copy(vertices[index]);
-    // label.position.y += 1.5;
-    // label.scale.set(3, 0.75, 1);
-    // group.add(label);
   });
 
-  // Ajout d'un effet de halo
-  // const haloGeometry = new THREE.SphereGeometry(radius * 1.1, 32, 32);
-  // const haloMaterial = new THREE.ShaderMaterial({
-  //   uniforms: {
-  //     color: { value: new THREE.Color(0xffffff) }
-  //   },
-  //   vertexShader: `
-  //     varying vec3 vNormal;
-  //     void main() {
-  //       vNormal = normalize(normalMatrix * normal);
-  //       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  //     }
-  //   `,
-  //   fragmentShader: `
-  //     uniform vec3 color;
-  //     varying vec3 vNormal;
-  //     void main() {
-  //       float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
-  //       gl_FragColor = vec4(color, intensity * 0.2);
-  //     }
-  //   `,
-  //   transparent: true,
-  //   side: THREE.BackSide
-  // });
-
-  // const halo = new THREE.Mesh(haloGeometry, haloMaterial);
-  // group.add(halo);
 
   animate();
 }

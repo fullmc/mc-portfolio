@@ -94,7 +94,7 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-normal text-primary-light dark:text-secondary-light">💡 Ce qui me motive</h3>
+                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">💡 Ce qui me motive</h3>
                 <div class="space-y-2">
                   <p>C'est comprendre les besoins, apporter des solutions concrètes, corriger des bugs, et parfois
                     repenser entièrement une interface, la faire évoluer, pour la rendre plus moderne et efficace.</p>
@@ -106,7 +106,7 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-normal text-primary-light dark:text-secondary-light">🌍 Et en dehors du code ?</h3>
+                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">🌍 Et en dehors du code ?</h3>
                 <div class="space-y-2">
                   <p>Je suis animée par la découverte : j'aime énormément <strong>voyager</strong>,
                     <strong>échanger</strong>, <strong>m'ouvrir</strong> à de nouveaux points de vue, à travers les

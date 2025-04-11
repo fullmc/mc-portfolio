@@ -42,7 +42,7 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col gap-6 justify-center">
-    <div class="flex items-center justify-between">
+    <div class="flex items-end justify-between">
       <div class="flex flex-col gap-6 pt-[12rem]">
         <h1 class="hello text-[28px] font-normal text-primary-light dark:text-primary-dark">
           Coucou 👋🏾 Je suis Marie-Claire,
