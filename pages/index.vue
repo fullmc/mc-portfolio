@@ -1,6 +1,19 @@
 <script setup>
 import { onMounted } from 'vue';
 import gsap from 'gsap';
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
+
+const downloadCV = () => {
+  const link = document.createElement('a');
+  const cvFileName = locale.value === 'fr' ? 'cv-fr.pdf' : 'cv-en.pdf';
+  link.href = `/${cvFileName}`;
+  link.download = cvFileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);  
+};
 
 onMounted(() => {
   const tl = gsap.timeline();
@@ -56,7 +69,7 @@ onMounted(() => {
           📍 Paris, France / 🌍 Remote
         </p>
         <div class="cv-button">
-          <button class="px-4 py-2 rounded-lg border border-primary-light text-primary-light dark:text-primary-dark dark:border-secondary-dark hover:scale-105 transition-transform">
+          <button class="px-4 py-2 rounded-lg border border-primary-light text-primary-light dark:text-primary-dark dark:border-secondary-dark hover:scale-105 transition-transform" @click="downloadCV">
             {{ $t('home_cv') }}
           </button>
         </div>
