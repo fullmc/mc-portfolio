@@ -81,37 +81,28 @@ onMounted(() => {
     class="mt-8 bg-background-light dark:bg-background-dark flex flex-col justify-center ">
     <div>
       <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark pb-4">
-        à propos
+        {{ $t('about_title') }}
       </h1>
       <div class="flex items-center justify-between flex-wrap flex-nowrap-custom">
         <div class="flex-col">
           <div class="gap-8 text-[20px] md:text-[18px] sm:text-[16px] font-light leading-[1.8] text-primary-light dark:text-primary-dark">
             <div class="presentation-text space-y-10 mr-32">
               <div>
-                <p>Mon parcours a commencé dans les ressources humaines, avant de prendre un tournant inattendu vers le
-                  développement web. Après plusieurs formations en autodidacte, j'ai intégré une école spécialisée pour
-                  approfondir mes compétences, et aujourd'hui, je m'épanouis pleinement dans ce domaine.</p>
+                <p>{{ $t('about_intro') }}</p>
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">💡 Ce qui me motive</h3>
+                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">💡 {{ $t('about_motiveTitle') }}</h3>
                 <div class="space-y-2">
-                  <p>C'est comprendre les besoins, apporter des solutions concrètes, corriger des bugs, et parfois
-                    repenser entièrement une interface, la faire évoluer, pour la rendre plus moderne et efficace.</p>
-                  <p>En général, je suis plutôt observatrice. J'aime prendre le temps de <strong>comprendre</strong>,
-                    écouter, poser les bonnes questions, <strong>communiquer</strong> (!). J'ai besoin d'un
-                    environnement <strong>bienveillant</strong> et de confiance pour m'exprimer pleinement, et quand
-                    c'est le cas, je suis super impliquée, et toujours partante pour collaborer.</p>
+                  <p>{{ $t('about_motive') }}</p>
+                  <p>{{ $t('about_working') }}</p>
                 </div>
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">🌍 Et en dehors du code ?</h3>
+                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">🌍 {{ $t('about_outsideTitle') }}</h3>
                 <div class="space-y-2">
-                  <p>Je suis animée par la découverte : j'aime énormément <strong>voyager</strong>,
-                    <strong>échanger</strong>, <strong>m'ouvrir</strong> à de nouveaux points de vue, à travers les
-                    discussions, la lecture ou les expériences de vie. Globalement, j'aime <strong>apprendre</strong>
-                    des autres et <strong>explorer</strong> tout ce qui peut enrichir ma vision du monde.</p>
+                  <p>{{ $t('about_outside') }}</p>
                 </div>
               </div>
             </div>

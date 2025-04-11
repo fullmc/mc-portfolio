@@ -60,9 +60,9 @@ const sendEmail = async () => {
         :delay="200"
         class="mb-16 text-center"
       >
-        <h1 class="text-6xl font-medium mb-6 dark:text-secondary-dark text-secondary-light tracking-wider">Contactez-moi</h1>
+        <h1 class="text-6xl font-medium mb-6 dark:text-secondary-dark text-secondary-light tracking-wider">{{ $t('contact') }}</h1>
         <p class="text-2xl text-secondary-light dark:text-secondary-dark max-w-2xl mx-auto font-normal">
-          et discutons de votre projet.
+          {{ $t('contact_text') }}
         </p>
       </div>
 
@@ -84,8 +84,7 @@ const sendEmail = async () => {
               id="email" 
               v-model="formData.email"
               required
-              class="bg-white/10 border border-secondary-light dark:border-secondary-dark rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300 hover:border-2 dark:hover:border-2"
-              placeholder="votre@email.com"
+              class="bg-white/10 border border-secondary-light dark:border-secondary-dark rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300 hover:border-2 dark:hover:border-2"
             >
           </div>
 
@@ -97,7 +96,7 @@ const sendEmail = async () => {
               required
               rows="5"
               class="bg-white/10 border border-secondary-light dark:border-secondary-dark rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300 hover:border-2 dark:hover:border-2"
-              placeholder="Décrivez votre projet..."
+              :placeholder="$t('desc')"
             ></textarea>
           </div>
 
@@ -105,7 +104,7 @@ const sendEmail = async () => {
             type="submit"
             class="mt-4 bg-secondary-light dark:bg-secondary-dark text-background-light dark:text-background-dark py-4 px-8 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg relative overflow-hidden group"
           >
-            <span class="relative z-10 dark:text-primary-dark">Envoyer</span>
+            <span class="relative z-10 dark:text-primary-dark">{{ $t('send') }}</span>
             <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </button>
         </form>

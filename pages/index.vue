@@ -45,14 +45,11 @@ onMounted(() => {
     <div class="flex items-end justify-between">
       <div class="flex flex-col gap-6 pt-[12rem]">
         <h1 class="hello text-[28px] font-normal text-primary-light dark:text-primary-dark">
-          Coucou 👋🏾 Je suis Marie-Claire,
+          {{ $t('home_hi') }}
         </h1>
         <div class="flex flex-col gap-8">
-          <span class="title text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark">
-            Développeuse
-          </span>
-          <span class="title text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark">
-            front-end
+          <span class="title text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
+            {{ $t('home_dev') }}
           </span>
         </div>
         <p class="location text-[24px] font-normal text-primary-light dark:text-primary-dark">
@@ -60,7 +57,7 @@ onMounted(() => {
         </p>
         <div class="cv-button">
           <button class="px-4 py-2 rounded-lg border border-primary-light text-primary-light dark:text-primary-dark dark:border-secondary-dark hover:scale-105 transition-transform">
-            Télécharger mon CV
+            {{ $t('home_cv') }}
           </button>
         </div>
       </div>

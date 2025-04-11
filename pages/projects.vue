@@ -119,7 +119,7 @@ onMounted(() => {
 <template>
   <div>
     <h1 class="projects-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark py-8">
-      mes projets
+      {{ $t('my_projects') }}
     </h1>
 
     <div class="flex items-center flex-wrap gap-12">
@@ -158,7 +158,7 @@ onMounted(() => {
               <a :href="project.link" 
                 target="_blank"
                 class="inline-flex items-center text-white hover:font-bold dark:hover:text-secondary-dark">
-                  Voir le projet
+                  {{ $t('view') }}
                 <svg xmlns="http://www.w3.org/2000/svg" 
                   class="h-5 w-5 ml-2" 
                   viewBox="0 0 20 20" 

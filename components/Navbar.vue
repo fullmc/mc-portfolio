@@ -55,8 +55,7 @@ const isActive = (path: string) => {
       </button>
       <span><img src="/line.svg" alt="fr" class="w-6 h-6 dark:invert" /></span>
       <button @click="switchLanguage">
-        <img v-if="locale === 'fr'" src="/france.png" alt="fr" class="w-6 h-6" />
-        <img v-else src="/uk.png" alt="en" class="w-6 h-6" />
+        <img :src="locale === 'fr' ? '/france.png' : '/uk.png'" :alt="locale === 'fr' ? 'fr' : 'en'" class="w-6 h-6" />
       </button>
     </div>
   </div>
