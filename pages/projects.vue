@@ -100,7 +100,7 @@ onMounted(() => {
       y: 100,
       opacity: 0,
       duration: 1,
-      delay: i * 0.2,
+      delay: i * 0.1,
       ease: "power4.out"
     })
   })
@@ -125,8 +125,8 @@ onMounted(() => {
     <div class="flex items-center flex-wrap gap-12">
       <div v-for="(project, index) in projects" 
         :key="index" 
-        class="w-[600px]">
-        <div class="relative overflow-hidden h-[300px] group rounded-2xl">
+        class="w-[450px]">
+        <div class="relative overflow-hidden h-[225px] group rounded-2xl">
           <template v-if="project.media.type === 'video'">
             <video 
               :src="project.media.url"
