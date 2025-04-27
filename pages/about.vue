@@ -2,7 +2,7 @@
 import Tooltip from 'primevue/tooltip';
 import { ref, onMounted } from 'vue';
 import 'primeicons/primeicons.css';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Technologies3D from '@/components/Technologies3D.vue';
