@@ -147,12 +147,12 @@ onMounted(() => {
           </template>
           
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-            <h3 class="text-2xl font-bold text-white mb-2">{{ project.title }}</h3>
+            <h3 class="text-xl font-semibold text-white mb-2">{{ project.title }}</h3>
             <div class="flex items-center gap-2 justify-between">
               <div class="flex gap-2 flex-wrap">
                 <span v-for="tech in project.technologies" 
                   :key="tech"
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">
+                  class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">
                   {{ tech }}
                 </span>
               </div>

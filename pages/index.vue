@@ -31,18 +31,6 @@ onMounted(() => {
     ease: "elastic.out(1, 0.8)",
     stagger: 0.2
   }, "-=0.5")
-  .from('.location', {
-    x: -50,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-  }, "-=0.7")
-  .from('.cv-button', {
-    scale: 0,
-    opacity: 0,
-    duration: 0.8,
-    ease: "back.out(1.7)"
-  }, "-=0.5")
   .from('.profile-pic', {
     x: 100,
     rotation: 10,
@@ -65,7 +53,7 @@ onMounted(() => {
             {{ $t('home_dev') }}
           </span>
         </div>
-        <p class="location text-[24px] font-normal text-primary-light dark:text-primary-dark">
+        <p class="location text-xl font-normal text-primary-light dark:text-primary-dark">
           📍 Paris, France / 🌍 Remote
         </p>
         <div class="cv-button">
