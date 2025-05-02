@@ -5,9 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 interface Project {
   title: string;
@@ -126,7 +123,7 @@ onMounted(() => {
       {{ $t('my_projects') }}
     </h1>
 
-    <div class="flex items-center flex-wrap gap-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
       <div v-for="(project, index) in projects" 
         :key="index" 
         class="w-[450px]">
