@@ -85,14 +85,14 @@ onMounted(() => {
       </h1>
       <div class="flex items-center justify-between flex-wrap flex-nowrap-custom">
         <div class="flex-col">
-          <div class="gap-8 text-lg font-light leading-[1.8] text-primary-light dark:text-primary-dark">
+          <div class="gap-8 text-base font-light leading-[1.8] text-primary-light dark:text-primary-dark">
             <div class="presentation-text space-y-10 mr-32">
               <div>
                 <p>{{ $t('about_intro') }}</p>
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-base font-normal text-primary-light dark:text-background-light">💡 {{ $t('about_motiveTitle') }}</h3>
+                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">💡 {{ $t('about_motiveTitle') }}</h3>
                 <div class="space-y-2">
                   <p>{{ $t('about_motive') }}</p>
                   <p>{{ $t('about_working') }}</p>
@@ -100,7 +100,7 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-xl font-normal text-primary-light dark:text-background-light">🌍 {{ $t('about_outsideTitle') }}</h3>
+                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">🌍 {{ $t('about_outsideTitle') }}</h3>
                 <div class="space-y-2">
                   <p>{{ $t('about_outside') }}</p>
                 </div>
