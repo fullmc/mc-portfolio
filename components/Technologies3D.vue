@@ -44,7 +44,7 @@ function init() {
 
   // Création des points pour chaque technologie
   const vertices = [];
-  const radius = container.value.clientWidth / 60;
+  const radius = 10;
   const count = props.technologies.length;
 
   for (let i = 0; i < count; i++) {
@@ -106,13 +106,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="container" class="w-full h-[500px] overflow-hidden"></div>
+  <div ref="container" class="w-full h-[500px]"></div>
 </template>
 
 <style scoped>
 canvas {
   width: 100%;
   height: 100%;
-  display: block;
 }
 </style>
