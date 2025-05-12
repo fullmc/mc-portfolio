@@ -43,18 +43,18 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col gap-6 justify-center">
-    <div class="flex items-end justify-between">
-      <div class="flex flex-col gap-6 pt-[12rem]">
-        <h1 class="hello text-[28px] font-normal text-primary-light dark:text-primary-dark">
+    <div class="flex flex-col md:flex-row items-center md:items-end justify-between">
+      <div class="flex flex-col gap-6 pt-8 md:pt-[12rem]">
+        <h1 class="hello text-[20px] md:text-[28px] font-normal text-primary-light dark:text-primary-dark">
           {{ $t('home_hi') }}
         </h1>
         <div class="flex flex-col gap-8">
           <span
-            class="title text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
+            class="title text-[40px] sm:text-[60px] md:text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
             {{ $t('home_dev') }}
           </span>
         </div>
-        <p class="location text-xl font-normal text-primary-light dark:text-primary-dark">
+        <p class="location text-lg md:text-xl font-normal text-primary-light dark:text-primary-dark">
           📍 Paris, France / 🌍 Remote
         </p>
         <div class="cv-button">
@@ -65,9 +65,9 @@ onMounted(() => {
           </button>
         </div>
       </div>
-      <div class="profile-pic">
-        <img src="../public/dark-pic.svg" alt="profile" class="hidden dark:block">
-        <img src="../public/light-pic.svg" alt="profile" class="block dark:hidden">
+      <div class="profile-pic mt-8 md:mt-0">
+        <img src="../public/dark-pic.svg" alt="profile" class="hidden dark:block w-[200px] md:w-auto">
+        <img src="../public/light-pic.svg" alt="profile" class="block dark:hidden w-[200px] md:w-auto">
       </div>
     </div>
   </div>
