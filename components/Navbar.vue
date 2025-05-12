@@ -34,7 +34,8 @@ const isActive = (path: string) => {
       </div>
       <p class="text-xs font-thin pt-1">MC LAMBO</p>
     </NuxtLink>
-    <div class="flex gap-[8em] rounded-full border border-secondary-dark dark:border-secondary-light px-[6em] py-4 text-lg tracking-wider">
+    <div
+      class="flex gap-[8em] rounded-full border border-secondary-dark dark:border-secondary-light px-[6em] py-4 text-lg tracking-wider">
       <NuxtLink :to="localePath('about')" :class="[
         'hover:text-xl transition-all duration-300',
         isActive('about').style
@@ -49,12 +50,12 @@ const isActive = (path: string) => {
       ]">{{ $t('contact_link') }}</NuxtLink>
     </div>
     <div class="flex gap-4 items-center">
-      <button @click="toggleMode">
+      <button name="toggleMode" aria-label="Toggle mode" @click="toggleMode">
         <MoonIcon v-if="colorMode.value === 'light'" class="w-6 h-6" />
         <SunIcon v-else class="w-6 h-6" />
       </button>
       <span><img src="/line.svg" alt="fr" class="w-6 h-6 dark:invert" /></span>
-      <button @click="switchLanguage">
+      <button name="switchLanguage" aria-label="Switch language" @click="switchLanguage">
         <img :src="locale === 'fr' ? '/france.png' : '/uk.png'" :alt="locale === 'fr' ? 'fr' : 'en'" class="w-6 h-6" />
       </button>
     </div>

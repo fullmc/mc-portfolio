@@ -12,32 +12,32 @@ const downloadCV = () => {
   link.download = cvFileName;
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);  
+  document.body.removeChild(link);
 };
 
 onMounted(() => {
   const tl = gsap.timeline();
-  
+
   tl.from('.hello', {
     y: -50,
     opacity: 0,
     duration: 1,
     ease: "power3.out"
   })
-  .from('.title', {
-    y: 100,
-    opacity: 0,
-    duration: 1.2,
-    ease: "elastic.out(1, 0.8)",
-    stagger: 0.2
-  }, "-=0.5")
-  .from('.profile-pic', {
-    x: 100,
-    rotation: 10,
-    opacity: 0,
-    duration: 1.2,
-    ease: "power2.out"
-  }, "-=1");
+    .from('.title', {
+      y: 100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "elastic.out(1, 0.8)",
+      stagger: 0.2
+    }, "-=0.5")
+    .from('.profile-pic', {
+      x: 100,
+      rotation: 10,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.out"
+    }, "-=1");
 });
 </script>
 
@@ -49,7 +49,8 @@ onMounted(() => {
           {{ $t('home_hi') }}
         </h1>
         <div class="flex flex-col gap-8">
-          <span class="title text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
+          <span
+            class="title text-[90px] font-extrabold leading-none tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
             {{ $t('home_dev') }}
           </span>
         </div>
@@ -57,7 +58,9 @@ onMounted(() => {
           📍 Paris, France / 🌍 Remote
         </p>
         <div class="cv-button">
-          <button class="px-4 py-2 rounded-lg border border-primary-light text-primary-light dark:text-primary-dark dark:border-secondary-dark hover:scale-105 transition-transform" @click="downloadCV">
+          <button name="downloadCV" aria-label="Download CV"
+            class="px-4 py-2 rounded-lg border border-primary-light text-primary-light dark:text-primary-dark dark:border-secondary-dark hover:scale-105 transition-transform"
+            @click="downloadCV">
             {{ $t('home_cv') }}
           </button>
         </div>
