@@ -14,7 +14,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Portfolio - Marie-CLaire'
+      content: 'Portfolio - Marie-Claire Lambo - Développeuse front-end'
     }
   ],
   htmlAttrs: {

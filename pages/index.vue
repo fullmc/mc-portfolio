@@ -18,30 +18,33 @@ onMounted(async () => {
   const Velocity = (await import('velocity-animate')).default;
   if (typeof window === 'undefined') return;
 
+
   Velocity(document.querySelector('.hello'), {
     translateY: [-0, -50],
     opacity: [1, 0]
   }, {
     duration: 1000,
     easing: "easeOutCubic"
-  }).then(() => {
-    Velocity(document.querySelector('.title'), {
-      translateY: [0, 100],
-      opacity: [1, 0]
-    }, {
-      duration: 1200,
-      easing: "easeOutElastic",
-      delay: 0, // no stagger in Velocity for single element
-    }).then(() => {
-      Velocity(document.querySelector('.profile-pic'), {
-        translateX: [0, 100],
-        rotateZ: [0, 10],
-        opacity: [1, 0]
-      }, {
-        duration: 1200,
-        easing: "easeOutCubic"
-      });
-    });
+  });
+
+  // Animation title
+  Velocity(document.querySelector('.title'), {
+    translateY: [0, 100],
+    opacity: [1, 0]
+  }, {
+    duration: 1200,
+    easing: "easeOutElastic",
+    delay: 0
+  });
+
+  // Animation profile-pic (lancée en même temps)
+  Velocity(document.querySelector('.profile-pic'), {
+    translateX: [0, 100],
+    rotateZ: [0, 10],
+    opacity: [1, 0]
+  }, {
+    duration: 1200,
+    easing: "easeOutCubic"
   });
 });
 </script>
