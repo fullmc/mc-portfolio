@@ -36,10 +36,12 @@
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.175.0",
+    "velocity-animate": "^1.5.2",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@types/velocity-animate": "^2.0.1",
     "prettier": "3.5.0",
     "shadcn-nuxt": "^0.11.3"
   }

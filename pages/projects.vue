@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
-
+import { animateOnScroll } from '@/utils/scroll-animate'
 
 interface Project {
   title: string;
@@ -81,41 +77,23 @@ const projects = ref<Project[]>([
   // Ajoutez vos autres projets ici
 ])
 
-onMounted(() => {
-  // Animation du titre
-  gsap.from(".projects-title", {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    ease: "power4.out"
-  })
+onMounted(async () => {
+  const Velocity = (await import('velocity-animate')).default;
+  if (typeof window === 'undefined') return;
 
-  // Animation des cartes de projets
-  gsap.utils.toArray<HTMLElement>(".project-card").forEach((card, i) => {
-    gsap.from(card, {
-      scrollTrigger: {
-        trigger: card,
-        start: "top bottom-=100",
-        toggleActions: "play none none reverse"
-      },
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      delay: i * 0.1,
-      ease: "power4.out"
-    })
-  })
+  animateOnScroll(
+    '.projects-title',
+    { translateY: [0, 100], opacity: [1, 0] },
+    { duration: 1000, easing: 'easeOutCubic' }
+  );
 
-  // Animation de parallaxe sur les images
-  gsap.to(".project-card img", {
-    yPercent: 20,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".project-card",
-      scrub: true
-    }
-  });
-})
+  animateOnScroll(
+    '.project-card',
+    { translateY: [0, 100], opacity: [1, 0] },
+    { duration: 1000, easing: 'easeOutCubic' },
+    100 // stagger
+  );
+});
 </script>
 <template>
   <div>
@@ -124,47 +102,34 @@ onMounted(() => {
     </h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
-      <div v-for="(project, index) in projects" 
-        :key="index" 
-        class="w-[450px]">
+      <div v-for="(project, index) in projects" :key="index" class="w-[450px]">
         <div class="relative overflow-hidden h-[225px] group rounded-2xl">
           <template v-if="project.media.type === 'video'">
-            <video 
-              :src="project.media.url"
-              class="w-full h-fit object-cover rounded-2xl project-card group bg-gray-100 dark:bg-gray-800"
-              autoplay
-              loop
-              muted
-              playsinline
-            />
+            <video :src="project.media.url"
+              class="w-full h-fit object-cover rounded-2xl project-card group bg-gray-100 dark:bg-gray-800" autoplay
+              loop muted playsinline />
           </template>
           <template v-else>
-            <img 
-              :src="project.media.url" 
-              :alt="project.title"
-              class="w-full h-fit object-cover rounded-2xl project-card group bg-gray-100 dark:bg-gray-800"
-            >
+            <img :src="project.media.url" :alt="project.title"
+              class="w-full h-fit object-cover rounded-2xl project-card group bg-gray-100 dark:bg-gray-800">
           </template>
-          
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
             <h3 class="text-xl font-semibold text-white mb-2">{{ project.title }}</h3>
             <div class="flex items-center gap-2 justify-between">
               <div class="flex gap-2 flex-wrap">
-                <span v-for="tech in project.technologies" 
-                  :key="tech"
+                <span v-for="tech in project.technologies" :key="tech"
                   class="px-3 py-1 bg-white/20 rounded-full text-xs text-white">
                   {{ tech }}
                 </span>
               </div>
-              <a :href="project.link" 
-                target="_blank"
-                class="inline-flex items-center text-white hover:font-bold">
-                  {{ $t('view') }}
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                  class="h-5 w-5 ml-2" 
-                  viewBox="0 0 20 20" 
-                  fill="currentColor">
-                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              <a :href="project.link" target="_blank" class="inline-flex items-center text-white hover:font-bold">
+                {{ $t('view') }}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd" />
                 </svg>
               </a>
             </div>
@@ -174,5 +139,4 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<style scoped>
-</style>
+<style scoped></style>

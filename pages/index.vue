@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted } from 'vue';
-import gsap from 'gsap';
 import { useI18n } from 'vue-i18n';
 
 const { locale } = useI18n();
@@ -15,29 +14,35 @@ const downloadCV = () => {
   document.body.removeChild(link);
 };
 
-onMounted(() => {
-  const tl = gsap.timeline();
+onMounted(async () => {
+  const Velocity = (await import('velocity-animate')).default;
+  if (typeof window === 'undefined') return;
 
-  tl.from('.hello', {
-    y: -50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-  })
-    .from('.title', {
-      y: 100,
-      opacity: 0,
-      duration: 1.2,
-      ease: "elastic.out(1, 0.8)",
-      stagger: 0.2
-    }, "-=0.5")
-    .from('.profile-pic', {
-      x: 100,
-      rotation: 10,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power2.out"
-    }, "-=1");
+  Velocity(document.querySelector('.hello'), {
+    translateY: [-0, -50],
+    opacity: [1, 0]
+  }, {
+    duration: 1000,
+    easing: "easeOutCubic"
+  }).then(() => {
+    Velocity(document.querySelector('.title'), {
+      translateY: [0, 100],
+      opacity: [1, 0]
+    }, {
+      duration: 1200,
+      easing: "easeOutElastic",
+      delay: 0, // no stagger in Velocity for single element
+    }).then(() => {
+      Velocity(document.querySelector('.profile-pic'), {
+        translateX: [0, 100],
+        rotateZ: [0, 10],
+        opacity: [1, 0]
+      }, {
+        duration: 1200,
+        easing: "easeOutCubic"
+      });
+    });
+  });
 });
 </script>
 

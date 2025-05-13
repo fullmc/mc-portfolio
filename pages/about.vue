@@ -2,10 +2,8 @@
 import Tooltip from 'primevue/tooltip';
 import { ref, onMounted } from 'vue';
 import 'primeicons/primeicons.css';
-import { gsap } from 'gsap';
-import { TextPlugin } from 'gsap/TextPlugin';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import Technologies3D from '@/components/Technologies3D.vue';
+import { animateOnScroll } from '@/utils/scroll-animate';
 
 // Ajout de la directive Tooltip
 const vTooltip = Tooltip;
@@ -29,56 +27,38 @@ const technologies = ref([
   { name: 'Jira', icon: '', image: '/jira.svg' },
 ]);
 
-// Enregistrer le plugin TextPlugin
-gsap.registerPlugin(TextPlugin);
+onMounted(async () => {
+  const Velocity = (await import('velocity-animate')).default;
+  if (typeof window === 'undefined') return;
 
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
+  // Animation des lettres du titre (si tu veux au scroll)
+  animateOnScroll(
+    '.split-char',
+    { opacity: [1, 0], translateY: [0, 100] },
+    { duration: 1000, easing: 'easeOutBack' },
+    50 // stagger
+  );
 
-  // Animation des lettres du titre
-  const titleChars = document.querySelectorAll('.split-char');
-  gsap.from(titleChars, {
-    opacity: 0,
-    y: 100,
-    duration: 1,
-    stagger: 0.05,
-    ease: "back.out(1.7)",
-    scrollTrigger: {
-      trigger: '.typing-title',
-      start: 'top center',
-      toggleActions: 'play none none reverse'
-    }
-  });
-
-  // Autres animations
-  const section = document.querySelector('.about-section');
-  gsap.from(section, {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: section,
-      start: 'top center',
-      toggleActions: 'play none none reverse'
-    }
-  });
+  // Animation de la section principale
+  animateOnScroll(
+    '.about-section',
+    { opacity: [1, 0], translateY: [0, 50] },
+    { duration: 1000, easing: 'easeOutCubic' }
+  );
 
   // Animation du texte de présentation et de la stack technique ensemble
-  gsap.from('.presentation-text, .stack-title, .tech-card', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    stagger: 0.2,
-    delay: 0.1,
-    ease: "power2.out"
-  });
+  animateOnScroll(
+    '.presentation-text, .stack-title, .tech-card',
+    { opacity: [1, 0], translateY: [0, 50] },
+    { duration: 1000, easing: 'easeOutCubic' },
+    200 // stagger
+  );
 });
 </script>
 
 
 <template>
-  <div
-    class="mt-8 bg-background-light dark:bg-background-dark flex flex-col justify-center ">
+  <div class="mt-8 bg-background-light dark:bg-background-dark flex flex-col justify-center ">
     <div>
       <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark pb-4">
         {{ $t('about_title') }}
@@ -92,7 +72,8 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">💡 {{ $t('about_motiveTitle') }}</h3>
+                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">💡 {{
+                  $t('about_motiveTitle') }}</h3>
                 <div class="space-y-2">
                   <p>{{ $t('about_motive') }}</p>
                   <p>{{ $t('about_working') }}</p>
@@ -100,7 +81,8 @@ onMounted(() => {
               </div>
 
               <div class="space-y-4">
-                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">🌍 {{ $t('about_outsideTitle') }}</h3>
+                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">🌍 {{
+                  $t('about_outsideTitle') }}</h3>
                 <div class="space-y-2">
                   <p>{{ $t('about_outside') }}</p>
                 </div>
@@ -117,7 +99,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
+<style lang="postcss">
 .p-tooltip .p-tooltip-text {
   --text-color: #003049;
   color: #003049;

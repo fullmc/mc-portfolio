@@ -14,11 +14,13 @@ let scene, camera, renderer, group, controls;
 const container = ref(null);
 
 function init() {
+  if (typeof window === 'undefined' || !container.value) return;
+
   scene = new THREE.Scene();
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
-    alpha: true // Activer la transparence
+    alpha: true
   });
   renderer.setClearColor(0x000000, 0); // Fond transparent
   renderer.setPixelRatio(window.devicePixelRatio);

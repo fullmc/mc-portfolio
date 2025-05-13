@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted } from 'vue'
-import gsap from 'gsap'
+import { onMounted, ref } from 'vue'
+import { animateOnScroll } from '@/utils/scroll-animate'
 const config = useRuntimeConfig()
 console.log('test', config.public.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID)
 
@@ -11,14 +11,21 @@ const formData = ref({
   message: ''
 })
 
-onMounted(() => {
-  gsap.from(formContainer.value, {
-    duration: 1,
-    y: 100,
-    opacity: 0,
-    ease: 'power3.out',
-    delay: 0.1
-  })
+onMounted(async () => {
+  const Velocity = (await import('velocity-animate')).default;
+  if (typeof window === 'undefined') return;
+
+  if (formContainer.value) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          Velocity(entry.target, { translateY: [0, 100], opacity: [1, 0] }, { duration: 1000, delay: 100, easing: "easeOutCubic" });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(formContainer.value);
+  }
 })
 
 const sendEmail = async () => {
