@@ -69,7 +69,6 @@ const sendEmail = async () => {
         </p>
       </div>
 
-      <!-- Formulaire avec animation GSAP -->
       <div ref="formContainer"
         class="max-w-md mx-auto p-8 rounded-2xl dark:bg-white/5 border-black/10 bg-secondary-light/10 backdrop-blur-sm border dark:border-white/10 relative overflow-hidden group">
         <!-- Effet de brillance au hover -->
