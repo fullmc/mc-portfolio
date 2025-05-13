@@ -102,8 +102,8 @@ onMounted(async () => {
     </h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
-      <div v-for="(project, index) in projects" :key="index" class="w-[450px]">
-        <div class="relative overflow-hidden h-[225px] group rounded-2xl">
+      <div v-for="(project, index) in projects" :key="index" class="w-full max-w-[420px] mx-auto">
+        <div class="relative overflow-hidden h-[180px] sm:h-[225px] group rounded-2xl">
           <template v-if="project.media.type === 'video'">
             <video :src="project.media.url"
               class="w-full h-fit object-cover rounded-2xl project-card group bg-gray-100 dark:bg-gray-800" autoplay

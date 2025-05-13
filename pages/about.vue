@@ -66,7 +66,7 @@ onMounted(async () => {
       <div class="flex items-center justify-between flex-wrap flex-nowrap-custom">
         <div class="flex-col">
           <div class="gap-8 text-base font-light leading-[1.8] text-primary-light dark:text-primary-dark">
-            <div class="presentation-text space-y-10 mr-32">
+            <div class="presentation-text space-y-10 mr-0 lg:mr-32">
               <div>
                 <p>{{ $t('about_intro') }}</p>
               </div>
