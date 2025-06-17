@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { animateOnScroll } from '@/utils/scroll-animate'
-import DotPattern from '@/components/dotPattern/DotPattern.vue'
+
+import { useColorMode } from '#imports'
+
+
+const colorMode = useColorMode()
 
 interface Project {
   title: string;
@@ -98,22 +101,23 @@ onMounted(async () => {
 </script>
 <template>
   <div class="relative w-full overflow-hidden">
-    <h1 class="projects-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark py-8">
-      {{ $t('my_projects') }}
-    </h1>
-
     <div class="relative">
-      <div class="absolute inset-0 -top-24 z-0">
-        <DotPattern
-          :width="40"
-          :height="40"
-          :cx="2"
-          :cy="2"
-          :cr="2"
-          class="w-full h-full [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+      <div class="absolute flex justify-center items-center h-full w-full">
+        <img
+          :src="colorMode.value === 'dark' ? '/round-dark.svg' : '/round.svg'"
+          alt="background" 
+          class="object-fit w-full"
+        />
+        <img 
+          :src="colorMode.value === 'dark' ? '/round-dark.svg' : '/round.svg'"
+          alt="background" 
+          class="object-contain opacity-50 w-full -ml-14"
         />
       </div>
-      <div class="relative z-10">
+      <div class="relative z-10 mx-[8em]">
+        <h1 class="projects-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark py-8">
+          {{ $t('my_projects') }}
+        </h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12 pb-48">
           <div v-for="(project, index) in projects" 
             :key="index" 

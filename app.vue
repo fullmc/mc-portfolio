@@ -1,7 +1,7 @@
 <template>
   <div class="bg-background-light dark:bg-background-dark">
     <Navbar />
-    <div class="m-[8em]">
+    <div>
       <NuxtPage />
     </div>
   </div>

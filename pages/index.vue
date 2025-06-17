@@ -52,7 +52,7 @@ onMounted(async () => {
 
 <template>
   <div class="flex flex-col gap-6 justify-center min-h-screen">
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between m-[8em]">
       <div class="flex flex-col gap-6">
         <div class="flex flex-col">
           <span class="title text-[90px] font-bold leading-tight tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
