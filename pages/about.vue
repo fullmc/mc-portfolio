@@ -65,8 +65,8 @@ onMounted(async () => {
       </h1>
       <div class="flex items-center justify-between flex-wrap flex-nowrap-custom">
         <div class="flex-col">
-          <div class="gap-8 text-base font-light leading-[1.8] text-primary-light dark:text-primary-dark">
-            <div class="presentation-text space-y-10 mr-0 lg:mr-32">
+          <div class="gap-8 text-sm font-light leading-[1.8] text-primary-light dark:text-primary-dark">
+            <div class="presentation-text space-y-10 mr-32">
               <div>
                 <p>{{ $t('about_intro') }}</p>
               </div>
@@ -90,10 +90,7 @@ onMounted(async () => {
             </div>
           </div>
         </div>
-
-        <div class="w-full lg:w-3/5 mx-auto flex flex-col lg:ml-12 mt-12 lg:mt-0">
-          <Technologies3D :technologies="technologies" />
-        </div>
+        <Technologies3D :technologies="technologies" />
       </div>
     </div>
   </div>

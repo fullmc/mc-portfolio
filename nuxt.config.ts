@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode', // active le mode couleur
     '@nuxtjs/google-fonts', // active google fonts
     '@nuxtjs/i18n', // active i18n pour les traductions
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    '@vueuse/motion/nuxt'
   ],
   i18n: {
     lazy: true,
