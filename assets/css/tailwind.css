@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --secondary-light-rgb: 216, 203, 183; /* #D8CBB7 */
+    --secondary-dark-rgb: 71, 85, 105; /* #475569 */
+  }
+  
   body {
     @apply bg-[#FAF8F0] dark:bg-[#111827];
   }

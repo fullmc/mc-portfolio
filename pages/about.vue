@@ -2,7 +2,7 @@
 import Tooltip from 'primevue/tooltip';
 import { ref, onMounted } from 'vue';
 import 'primeicons/primeicons.css';
-import Technologies3D from '@/components/Technologies3D.vue';
+import Globe from '@/components/Globe.vue';
 import { animateOnScroll } from '@/utils/scroll-animate';
 import AnimatedTooltip from '@/components/AnimatedTooltip.vue';
 import StackedCarousel from '@/components/StackedCarousel.vue';
@@ -88,9 +88,9 @@ onMounted(async () => {
 
 
 <template>
-  <div class="bg-background-light dark:bg-background-dark flex flex-col justify-center mx-[8em]">
+  <div class="bg-background-light dark:bg-background-dark flex flex-col mx-[8em]">
     <div>
-      <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark pb-4">
+      <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-primary-dark py-8">
         {{ $t('about_title') }}
       </h1>
       
@@ -116,15 +116,28 @@ onMounted(async () => {
       </div>
 
 
+
+      <div class="flex items-start justify-between">
         <!-- Grille des technologies -->
-        <h2 class="text-2xl text-primary-light dark:text-primary-dark mb-4">
-          {{ $t('stack_title') }}
-        </h2>
-        <div class="tech-grid">
-          <AnimatedTooltip :items="technologies" />
+        <div class="flex flex-col gap-8">
+          <h2 class="text-xl text-primary-light dark:text-primary-dark">
+            {{ $t('stack_title') }}
+          </h2>
+          <div class="tech-grid w-3/4">
+            <AnimatedTooltip :items="technologies" />
+          </div>
+        </div>
+
+        <!-- Localisation -->
+         <div class="flex flex-col">
+          <h2 class="text-xl text-primary-light dark:text-primary-dark">
+            🗺️ {{ $t('location_title') }}
+          </h2>
+          <Globe class="-mt-16"/>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <style lang="postcss">
@@ -183,9 +196,6 @@ html.dark .p-tooltip .p-tooltip-text {
   background: radial-gradient(circle at 50% 50%, rgba(var(--secondary-dark-rgb), 0.05) 0%, transparent 70%);
 }
 
-.tech-grid {
-  @apply relative;
-}
 
 /* Animation d'entrée pour les éléments */
 .tech-section h2,
