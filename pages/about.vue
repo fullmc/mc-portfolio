@@ -5,6 +5,7 @@ import 'primeicons/primeicons.css';
 import Technologies3D from '@/components/Technologies3D.vue';
 import { animateOnScroll } from '@/utils/scroll-animate';
 import AnimatedTooltip from '@/components/AnimatedTooltip.vue';
+import StackedCarousel from '@/components/StackedCarousel.vue';
 
 // Ajout de la directive Tooltip
 const vTooltip = Tooltip;
@@ -26,6 +27,34 @@ const technologies = ref([
   { name: 'VS Code', designation: 'Éditeur de code', image: '/vscode.svg', id: 14 },
   { name: 'Cursor', designation: 'IDE IA', image: '/cursor.png', id: 15 },
   { name: 'Jira', designation: 'Gestion de projet', image: '/jira.svg', id: 16 },
+]);
+
+// Images pour le carousel
+const carouselImages = ref([
+  {
+    src: '/mcwttj.svg',
+    alt: 'Portrait professionnel',
+  },
+  {
+    src: '/mc-adidas.png',
+    alt: '10Kdidas',
+  },
+  {
+    src: '/mc-run.png',
+    alt: 'Moi devant le big ben',
+  },
+  {
+    src: '/mc-cat.png',
+    alt: 'Un chat et moi',
+  },
+  {
+    src: '/mc-itza.png',
+    alt: 'Moi devant le Chichen Itza',
+  },
+  {
+    src: '/mc-ecureuil.png',
+    alt: 'Un écureuil et moi',
+  },
 ]);
 
 onMounted(async () => {
@@ -68,7 +97,7 @@ onMounted(async () => {
       <!-- Section principale avec présentation -->
       <div class="about-section mb-16">
         <div class="flex items-center justify-between gap-16">
-          <img src="/mcwttj.svg" alt="about" class="w-[400px] rounded-lg"/>  
+          <StackedCarousel :images="carouselImages" />  
           <div class="text-sm font-light leading-[1.8] text-primary-light dark:text-primary-dark">
             <div class="presentation-text text-justify  flex flex-col gap-4">
               <h3>{{ $t('about_intro') }}</h3>
