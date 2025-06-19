@@ -2,6 +2,7 @@
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Projects from './projects.vue';
+import About from './about.vue';
 
 const { locale } = useI18n();
 
@@ -52,7 +53,7 @@ onMounted(async () => {
 
 <template>
   <div class="flex flex-col gap-6 justify-center min-h-screen">
-    <div class="flex items-center justify-between m-[8em]">
+    <div class="flex items-center justify-between mx-[8em] h-screen">
       <div class="flex flex-col gap-6">
         <div class="flex flex-col">
           <span class="title text-[90px] font-bold leading-tight tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
@@ -70,8 +71,13 @@ onMounted(async () => {
     </div>
 
     <!-- Section Projets -->
-    <div class="mt-24">
+    <div class="h-screen">
       <Projects />
+    </div>
+
+    <!-- Section A propos -->
+    <div class="h-screen">
+      <About />
     </div>
   </div>
 </template>

@@ -4,27 +4,28 @@ import { ref, onMounted } from 'vue';
 import 'primeicons/primeicons.css';
 import Technologies3D from '@/components/Technologies3D.vue';
 import { animateOnScroll } from '@/utils/scroll-animate';
+import AnimatedTooltip from '@/components/AnimatedTooltip.vue';
 
 // Ajout de la directive Tooltip
 const vTooltip = Tooltip;
 
 const technologies = ref([
-  { name: 'Vue', icon: '', image: '/vuejs.svg' },
-  { name: 'React', icon: '', image: '/react.png' },
-  { name: 'JavaScript', icon: '', image: '/js.svg' },
-  { name: 'TypeScript', icon: '', image: '/typescript.svg' },
-  { name: 'Tailwind', icon: '', image: '/tailwind.png' },
-  { name: 'Next', icon: '', image: '/next.png' },
-  { name: 'Nuxt', icon: '', image: '/nuxt.png' },
-  { name: 'Express', icon: '', image: '/express.webp' },
-  { name: 'Node', icon: '', image: '/node.svg' },
-  { name: 'SQLite', icon: '', image: '/sqlite.svg' },
-  { name: 'Prisma', icon: '', image: '/prisma.svg' },
-  { name: 'Git', icon: '', image: '/git.png' },
-  { name: 'Figma', icon: '', image: '/figma.webp' },
-  { name: 'VS Code', icon: '', image: '/vscode.svg' },
-  { name: 'Cursor', icon: '', image: '/cursor.png' },
-  { name: 'Jira', icon: '', image: '/jira.svg' },
+  { name: 'Vue.js', designation: 'Framework Frontend', image: '/vuejs.svg', id: 1 },
+  { name: 'React', designation: 'Bibliothèque UI', image: '/react.png', id: 2 },
+  { name: 'JavaScript', designation: 'Langage de programmation', image: '/js.svg', id: 3 },
+  { name: 'TypeScript', designation: 'JavaScript typé', image: '/typescript.svg', id: 4 },
+  { name: 'Tailwind CSS', designation: 'Framework CSS', image: '/tailwind.png', id: 5 },
+  { name: 'Next.js', designation: 'Framework React', image: '/next.png', id: 6 },
+  { name: 'Nuxt.js', designation: 'Framework Vue', image: '/nuxt.png', id: 7 },
+  { name: 'Express.js', designation: 'Framework Node.js', image: '/express.webp', id: 8 },
+  { name: 'Node.js', designation: 'Runtime JavaScript', image: '/node.svg', id: 9 },
+  { name: 'SQLite', designation: 'Base de données', image: '/sqlite.svg', id: 10 },
+  { name: 'Prisma', designation: 'ORM moderne', image: '/prisma.svg', id: 11 },
+  { name: 'Git', designation: 'Contrôle de version', image: '/git.png', id: 12 },
+  { name: 'Figma', designation: 'Design UI/UX', image: '/figma.webp', id: 13 },
+  { name: 'VS Code', designation: 'Éditeur de code', image: '/vscode.svg', id: 14 },
+  { name: 'Cursor', designation: 'IDE IA', image: '/cursor.png', id: 15 },
+  { name: 'Jira', designation: 'Gestion de projet', image: '/jira.svg', id: 16 },
 ]);
 
 onMounted(async () => {
@@ -58,42 +59,43 @@ onMounted(async () => {
 
 
 <template>
-  <div class="mt-8 bg-background-light dark:bg-background-dark flex flex-col justify-center ">
+  <div class="bg-background-light dark:bg-background-dark flex flex-col justify-center mx-[8em]">
     <div>
       <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-secondary-dark pb-4">
         {{ $t('about_title') }}
       </h1>
-      <div class="flex items-center justify-between flex-wrap flex-nowrap-custom">
-        <div class="flex-col">
-          <div class="gap-8 text-sm font-light leading-[1.8] text-primary-light dark:text-primary-dark">
-            <div class="presentation-text space-y-10 mr-32">
-              <div>
-                <p>{{ $t('about_intro') }}</p>
-              </div>
-
-              <div class="space-y-4">
-                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">💡 {{
-                  $t('about_motiveTitle') }}</h3>
-                <div class="space-y-2">
-                  <p>{{ $t('about_motive') }}</p>
-                  <p>{{ $t('about_working') }}</p>
-                </div>
-              </div>
-
-              <div class="space-y-4">
-                <h3 class="text-lg font-normal text-primary-light dark:text-background-light">🌍 {{
-                  $t('about_outsideTitle') }}</h3>
-                <div class="space-y-2">
-                  <p>{{ $t('about_outside') }}</p>
-                </div>
-              </div>
+      
+      <!-- Section principale avec présentation -->
+      <div class="about-section mb-16">
+        <div class="flex items-center justify-between gap-16">
+          <img src="/mcwttj.svg" alt="about" class="w-[400px] rounded-lg"/>  
+          <div class="text-sm font-light leading-[1.8] text-primary-light dark:text-primary-dark">
+            <div class="presentation-text text-justify  flex flex-col gap-4">
+              <h3>{{ $t('about_intro') }}</h3>
+              <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+                💡 {{ $t('about_motiveTitle') }}
+              </h3>
+                <p>{{ $t('about_motive') }}</p>
+                <p>{{ $t('about_working') }}</p>
+              <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+                🌍 {{$t('about_outsideTitle') }}
+              </h3>
+                <p>{{ $t('about_outside') }}</p>
             </div>
           </div>
         </div>
-        <Technologies3D :technologies="technologies" />
+      </div>
+
+
+        <!-- Grille des technologies -->
+        <h2 class="text-2xl text-primary-light dark:text-primary-dark mb-4">
+          {{ $t('stack_title') }}
+        </h2>
+        <div class="tech-grid">
+          <AnimatedTooltip :items="technologies" />
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style lang="postcss">
@@ -129,5 +131,122 @@ html.dark .p-tooltip .p-tooltip-text {
 
 .presentation-text ul li:hover {
   @apply translate-x-2;
+}
+
+/* Styles pour la section des technologies */
+.tech-section {
+  @apply relative overflow-hidden;
+}
+
+.tech-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(var(--secondary-light-rgb), 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dark .tech-section::before {
+  background: radial-gradient(circle at 50% 50%, rgba(var(--secondary-dark-rgb), 0.05) 0%, transparent 70%);
+}
+
+.tech-grid {
+  @apply relative;
+}
+
+/* Animation d'entrée pour les éléments */
+.tech-section h2,
+.tech-section p {
+  @apply animate-fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Effet de particules en arrière-plan */
+.tech-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(var(--secondary-light-rgb), 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(var(--secondary-light-rgb), 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(var(--secondary-light-rgb), 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: float-particles 20s ease-in-out infinite;
+}
+
+.dark .tech-section::after {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(var(--secondary-dark-rgb), 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(var(--secondary-dark-rgb), 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(var(--secondary-dark-rgb), 0.05) 0%, transparent 50%);
+}
+
+@keyframes float-particles {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tech-section {
+    @apply px-4;
+  }
+  
+  .tech-section h2 {
+    @apply text-2xl;
+  }
+  
+  .tech-section p {
+    @apply text-base;
+  }
+}
+
+/* Amélioration des transitions globales */
+.about-section,
+.tech-section {
+  @apply transition-all duration-700 ease-out;
+}
+
+/* Effet de focus pour l'accessibilité */
+.tech-section:focus-within {
+  @apply outline-none;
+}
+
+/* Optimisation des performances */
+.tech-section * {
+  @apply will-change-auto;
+}
+
+.tech-section:hover * {
+  @apply will-change-transform;
 }
 </style>

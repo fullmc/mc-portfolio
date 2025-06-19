@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { animateOnScroll } from '@/utils/scroll-animate'
 
 import { useColorMode } from '#imports'
 
@@ -106,12 +107,12 @@ onMounted(async () => {
         <img
           :src="colorMode.value === 'dark' ? '/round-dark.svg' : '/round.svg'"
           alt="background" 
-          class="object-fit w-full"
+          class="object-fit w-full z-10"
         />
         <img 
-          :src="colorMode.value === 'dark' ? '/round-dark.svg' : '/round.svg'"
+          :src="colorMode.value === 'dark' ? '/darkstroke-round2.svg' : '/stroke-round2.svg'"
           alt="background" 
-          class="object-contain opacity-50 w-full -ml-14"
+          class="object-fit w-full -ml-14"
         />
       </div>
       <div class="relative z-10 mx-[8em]">
