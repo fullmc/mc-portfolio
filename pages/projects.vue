@@ -104,13 +104,13 @@ onMounted(async () => {
   <div class="relative w-full overflow-hidden">
     <div class="relative bg-[#C1440E] dark:bg-[#1F2937] h-screen">
       <div class="relative z-10 mx-[8em]">
-        <h1 class="projects-title text-[74px] font-normal text-secondary-light dark:text-primary-dark py-8">
+        <h1 class="projects-title text-6xl font-normal text-secondary-light dark:text-primary-dark py-8">
           {{ $t('my_projects') }}
         </h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
           <div v-for="(project, index) in projects" 
             :key="index" 
-            class="w-[450px] mb-16">
+            class="mb-16">
             <div class="relative overflow-hidden group rounded-2xl h-[230px]">
               <template v-if="project.media.type === 'video'">
                 <video 
