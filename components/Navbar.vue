@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { SunIcon } from "@heroicons/vue/24/outline";
 import { MoonIcon } from "@heroicons/vue/24/solid";
-import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const route = useRoute();
 const colorMode = useColorMode();
@@ -36,21 +35,8 @@ const toggleMenu = () => {
       <div class="flex items-center justify-center">
         <img src="/mcmoji.png" alt="logo" class="w-12" />
       </div>
-      <!-- <p class="text-xs font-thin pt-1">MC LAMBO</p> -->
     </NuxtLink>
     <div class="flex justify-between items-center gap-[4em] text-lg tracking-wider">
-      <!-- <NuxtLink :to="localePath('about')" :class="[
-        'hover:text-xl transition-all duration-300',
-        isActive('about').style
-      ]">{{ $t('about_link') }}</NuxtLink> -->
-      <!-- <NuxtLink :to="localePath('projects')" :class="[
-        'hover:text-xl transition-all duration-300',
-        isActive('projects').style
-      ]">{{ $t('projects_link') }}</NuxtLink>
-      <NuxtLink :to="localePath('contact')" :class="[
-        'hover:text-xl transition-all duration-300',
-        isActive('contact').style
-      ]">{{ $t('contact_link') }}</NuxtLink> -->
       <div class="flex gap-[4em]">
         <NuxtLink :to="localePath('projects')" :class="[
           'hover:text-xl transition-all duration-300 uppercase tracking-wider',

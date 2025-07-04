@@ -61,7 +61,8 @@ const projects = ref<IProject[]>([
       { name: "VueJS", icon: "/vuejs.svg" },
 
     ],
-    backTech: []
+    backTech: [],
+    link: "https://pokeproject-six.vercel.app/#/"
   },
   {
     title: "WeatherApp",
@@ -72,7 +73,8 @@ const projects = ref<IProject[]>([
       { name: "CSS", icon: "/css.svg" },
       { name: "JavaScript", icon: "/js-light.svg" },
     ],
-    backTech: []
+    backTech: [],
+    link: "https://github.com/fullmc/weather-app"
   },
   {
     title: "Call me maybe",
@@ -81,7 +83,8 @@ const projects = ref<IProject[]>([
     frontTech: [
       { name: "VueJS", icon: "/vuejs.svg" },
     ],
-    backTech: []
+    backTech: [],
+    link: "https://github.com/fullmc/vue-telephone"
   },
 ])
 

@@ -9,7 +9,11 @@
   }
   
   body {
-    @apply bg-[#FAF8F0] dark:bg-[#111827];
+    @apply bg-[#FAF8F0];
+  }
+  
+  .dark body {
+    @apply bg-[#111827];
   }
 }
 /* @layer base {

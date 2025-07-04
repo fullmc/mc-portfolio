@@ -8,16 +8,22 @@
 </template>
 
 <script lang="ts" setup>
+const colorMode = useColorMode()
+
+// Forcer le mode clair immédiatement
+colorMode.preference = 'light'
+colorMode.value = 'light'
+
 useHead({
-  title: 'Portfolio - Marie-CLaire',
+  title: 'Marie-Claire Lambo',
   meta: [
     {
       name: 'description',
-      content: 'Portfolio - Marie-Claire Lambo - Développeuse front-end'
+      content: 'Marie-Claire Lambo - Développeuse front-end'
     }
   ],
   htmlAttrs: {
     lang: 'fr'
-  }
+  },
 })
 </script>
