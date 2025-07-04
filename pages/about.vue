@@ -12,13 +12,13 @@ const vTooltip = Tooltip;
 
 const technologies = ref([
   { name: 'Vue.js', designation: 'Framework Frontend', image: '/vuejs.svg', id: 1 },
-  { name: 'React', designation: 'Bibliothèque UI', image: '/react.png', id: 2 },
-  { name: 'JavaScript', designation: 'Langage de programmation', image: '/js.svg', id: 3 },
+  { name: 'React', designation: 'Bibliothèque UI', image: '/react.svg', id: 2 },
+  { name: 'JavaScript', designation: 'Langage de programmation', image: '/js-light.svg', id: 3 },
   { name: 'TypeScript', designation: 'JavaScript typé', image: '/typescript.svg', id: 4 },
   { name: 'Tailwind CSS', designation: 'Framework CSS', image: '/tailwind.png', id: 5 },
-  { name: 'Next.js', designation: 'Framework React', image: '/next.png', id: 6 },
-  { name: 'Nuxt.js', designation: 'Framework Vue', image: '/nuxt.png', id: 7 },
-  { name: 'Express.js', designation: 'Framework Node.js', image: '/express.webp', id: 8 },
+  { name: 'Next.js', designation: 'Framework React', image: '/nextjs.svg', id: 6 },
+  { name: 'Nuxt.js', designation: 'Framework Vue', image: '/nuxt.svg', id: 7 },
+  { name: 'Express.js', designation: 'Framework Node.js', image: '/express.svg', id: 8 },
   { name: 'Node.js', designation: 'Runtime JavaScript', image: '/node.svg', id: 9 },
   { name: 'SQLite', designation: 'Base de données', image: '/sqlite.svg', id: 10 },
   { name: 'Prisma', designation: 'ORM moderne', image: '/prisma.svg', id: 11 },

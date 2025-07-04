@@ -1,9 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: [],
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './app.vue',
+  ],
   theme: {
     extend: {
+      animation: {
+        gradient: 'gradient 8s linear infinite',
+      },
+      keyframes: {
+        gradient: {
+          to: {
+            backgroundPosition: 'var(--bg-size) 0',
+          },
+        },
+      },
       colors: {
         'background': {
           DEFAULT: "#012233",
