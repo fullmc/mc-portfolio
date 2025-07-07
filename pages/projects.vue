@@ -36,7 +36,7 @@ const projects = ref<IProject[]>([
     backTech: [
       { name: "NodeJS", icon: "/node.svg", iconDark: "/node-dark.svg" },
     ],
-    link: "https://github.com/fullmc/enigma-quest"
+    link: "https://socketgame.vercel.app/"
   },
   {
     title: "Vortex",
