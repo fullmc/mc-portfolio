@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Projects from './projects.vue';
 import About from './about.vue';
+import Contact from './contact.vue';
 import { animateOnScroll } from '@/utils/scroll-animate';
 
 const { locale } = useI18n();
@@ -53,7 +54,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="relative bg-background-light dark:bg-background-dark overflow-hidden">
+  <div class="relative bg-background-light dark:bg-background-dark overflow-hidden" id="home">
     <!-- Éléments flottants en arrière-plan -->
     <div class="floating-elements absolute inset-0 pointer-events-none">
       <!-- Points dans la partie supérieure -->
@@ -89,8 +90,8 @@ onMounted(async () => {
     </div>
 
 
-    <!-- Section Hero -->
-    <section class="hero-section flex items-center justify-between mx-[8em] relative h-screen">
+    <!-- Section home -->
+    <section class="hero-section flex items-center justify-between mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em] relative h-screen">
       <div class="flex flex-col gap-8 max-w-2xl">
         <div class="">
           <span class="title text-[90px] font-bold leading-tight tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
@@ -173,6 +174,11 @@ onMounted(async () => {
     <!-- Section A propos -->
     <section id="about" class="min-h-screen scroll-animate">
       <About />
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="min-h-screen scroll-animate flex items-center justify-center">
+      <Contact />
     </section>
   </div>
 </template>

@@ -5,7 +5,7 @@ import { MoonIcon } from "@heroicons/vue/24/solid";
 const route = useRoute();
 const colorMode = useColorMode();
 const localePath = useLocalePath();
-const { locales, locale, setLocale } = useI18n();
+const { locale, setLocale } = useI18n();
 const isMenuOpen = ref(false);
 
 const toggleMode = () => {
@@ -27,25 +27,26 @@ const isActive = (path: string) => {
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 </script>
 
 <template>
   <div class="sticky top-0 z-50 bg-background-light dark:bg-background-dark dark:text-primary-dark text-primary-light flex justify-between items-center border-b-2 border-secondary-light dark:border-secondary-dark px-[8em] py-4">
-    <NuxtLink to="/">
+    <button @click="scrollToSection('home')">
       <div class="flex items-center justify-center">
         <img src="/mcmoji.png" alt="logo" class="w-12" />
       </div>
-    </NuxtLink>
+    </button>
     <div class="flex justify-between items-center gap-[4em] text-lg tracking-wider">
       <div class="flex gap-[4em]">
-        <NuxtLink :to="localePath('projects')" :class="[
-          'hover:text-xl transition-all duration-300 uppercase tracking-wider',
-          isActive('projects').style
-        ]">{{ $t('projects_link') }}</NuxtLink>
-        <NuxtLink :to="localePath('contact')" :class="[
-          'hover:text-xl transition-all duration-300 uppercase tracking-wider',
-          isActive('contact').style
-        ]">{{ $t('contact_link') }}</NuxtLink>
+        <button @click="scrollToSection('projects')" class="hover:text-xl transition-all duration-300 uppercase tracking-wider">{{ $t('projects_link') }}</button>
+        <button @click="scrollToSection('contact')" class="hover:text-xl transition-all duration-300 uppercase tracking-wider">{{ $t('contact_link') }}</button>
       </div>
       <div class="flex items-center">
         <button @click="toggleMode">

@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { animateOnScroll } from '@/utils/scroll-animate'
+
 const config = useRuntimeConfig()
 console.log('test', config.public.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID)
 

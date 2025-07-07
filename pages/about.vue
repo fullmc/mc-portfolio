@@ -88,15 +88,15 @@ onMounted(async () => {
 
 
 <template>
-  <div class="bg-background-light dark:bg-background-dark flex flex-col mx-[8em]">
+  <div class="bg-background-light dark:bg-background-dark flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em]">
     <div>
-      <h1 class="typing-title text-[74px] font-normal text-secondary-light dark:text-primary-dark py-8">
+      <h1 class="text-[74px] font-normal sm:text-center text-secondary-light dark:text-primary-dark py-8">
         {{ $t('about_title') }}
       </h1>
       
       <!-- Section principale avec présentation -->
       <div class="about-section mb-16">
-        <div class="flex items-center justify-between gap-16">
+        <div class="flex items-center justify-between gap-16 flex-col md:flex-row">
           <StackedCarousel :images="carouselImages" />  
           <div class="text-sm font-light leading-[1.8] text-primary-light dark:text-primary-dark">
             <div class="presentation-text text-justify  flex flex-col gap-4">
@@ -117,20 +117,20 @@ onMounted(async () => {
 
 
 
-      <div class="flex items-start justify-between">
+      <div class="flex justify-between flex-col items-center lg:flex-row gap-8">
         <!-- Grille des technologies -->
-        <div class="flex flex-col gap-8">
-          <h2 class="text-xl text-primary-light dark:text-primary-dark">
+        <div class="flex-1">
+          <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 text-center ">
             {{ $t('stack_title') }}
           </h2>
-          <div class="tech-grid w-3/4">
+          <div class="tech-grid">
             <AnimatedTooltip :items="technologies" />
           </div>
         </div>
 
         <!-- Localisation -->
-         <div class="flex flex-col">
-          <h2 class="text-xl text-primary-light dark:text-primary-dark">
+        <div class="flex flex-col lg:ml-8">
+          <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6">
             🗺️ {{ $t('location_title') }}
           </h2>
           <Globe class="-mt-16"/>

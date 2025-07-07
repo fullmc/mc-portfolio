@@ -36,7 +36,7 @@ const projects = ref<IProject[]>([
     backTech: [
       { name: "NodeJS", icon: "/node.svg", iconDark: "/node-dark.svg" },
     ],
-    link: "https://github.com/fullmc/socket-game"
+    link: "https://github.com/fullmc/enigma-quest"
   },
   {
     title: "Vortex",
@@ -122,17 +122,17 @@ onMounted(async () => {
                 </h3>
               </AnimatedGradientText>
               <a v-if="project.link" :href="project.link" target="_blank" class="text-primary-dark">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
             </div>
-            <p class="text-lg text-[#B8A88E] dark:text-primary-dark mb-1">{{ $t(project.descriptionKey) }}</p>
-            <p class="text-sm text-[#B8A88E] dark:text-primary-dark italic">{{ $t(project.tasksKey) }}</p>
+            <p class="text-lg text-[#877b68] dark:text-primary-dark mb-1">{{ $t(project.descriptionKey) }}</p>
+            <p class="text-sm text-[#877b68] dark:text-primary-dark italic">{{ $t(project.tasksKey) }}</p>
           </div>
           <div class="mt-4">
             <div v-if="project.frontTech.length > 0" class="flex items-center mb-2">
-              <span class="text-sm font-medium text-[#B8A88E] dark:text-primary-dark w-16">Front:</span>
+              <span class="text-sm font-medium text-[#877b68] dark:text-primary-dark w-16">Front:</span>
               <div class="flex gap-3">
                 <img v-for="tech in project.frontTech" :key="tech.name" 
                   :src="colorMode.value === 'dark' && tech.iconDark ? tech.iconDark : tech.icon" 
@@ -140,7 +140,7 @@ onMounted(async () => {
               </div>
             </div>
             <div v-if="project.backTech.length > 0" class="flex items-center">
-              <span class="text-sm font-medium text-[#B8A88E] dark:text-primary-dark w-16">Back:</span>
+              <span class="text-sm font-medium text-[#877b68] dark:text-primary-dark w-16">Back:</span>
               <div class="flex gap-3">
                 <img v-for="tech in project.backTech" :key="tech.name" 
                   :src="colorMode.value === 'dark' && tech.iconDark ? tech.iconDark : tech.icon" 
