@@ -94,12 +94,12 @@ onMounted(async () => {
     <section class="hero-section flex items-center justify-between mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em] relative h-screen">
       <div class="flex flex-col gap-8 max-w-2xl">
         <div class="">
-          <span class="title text-[90px] font-bold leading-tight tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
+          <h1 class="title text-[90px] font-bold leading-tight tracking-wide text-primary-light dark:text-primary-dark whitespace-pre-line">
             {{ $t('home_id') }}
-          </span>
-          <h1 class="hello text-2xl font-light text-[#F97316]">
-            {{ $t('home_dev') }}
           </h1>
+          <p class="hello text-2xl font-light text-[#F97316]">
+            {{ $t('home_dev') }}
+          </p>
         </div>
           
         <!-- Description dynamique -->

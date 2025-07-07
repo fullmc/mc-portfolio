@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      'Poppins': true,
+      'Poppins': [300, 400, 500, 600, 700],
+      'Bricolage Grotesque': [300, 400, 500, 600, 700],
     },
   },
 

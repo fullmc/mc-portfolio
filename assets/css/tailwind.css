@@ -9,12 +9,27 @@
   }
   
   body {
-    @apply bg-[#FAF8F0];
+    @apply bg-[#FAF8F0] font-['Poppins'];
   }
   
   .dark body {
     @apply bg-[#111827];
   }
+  
+  /* Font pour les titres */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+  
+  /* Classes utilitaires pour les fonts */
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-bricolage {
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+  
 }
 /* @layer base {
   :root {
