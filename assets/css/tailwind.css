@@ -9,11 +9,11 @@
   }
   
   body {
-    @apply bg-[#FAF8F0] font-['Poppins'];
+    @apply bg-[#FAF8F0] font-['Poppins'] text-primary-light;
   }
   
   .dark body {
-    @apply bg-[#111827];
+    @apply bg-[#111827] text-primary-dark;
   }
   
   /* Font pour les titres */

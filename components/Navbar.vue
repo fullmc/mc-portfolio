@@ -37,7 +37,7 @@ const scrollToSection = (sectionId: string) => {
 </script>
 
 <template>
-  <div class="sticky top-0 z-50 bg-background-light dark:bg-background-dark dark:text-primary-dark text-primary-light flex justify-between items-center border-b-2 border-secondary-light dark:border-secondary-dark px-[8em] py-4">
+  <div class="fixed w-full top-0 z-50 bg-background-light dark:bg-background-dark dark:text-primary-dark text-primary-light flex justify-between items-center border-b-2 border-secondary-light dark:border-secondary-dark px-[8rem] py-4">
     <button @click="scrollToSection('home')">
       <div class="flex items-center justify-center">
         <img src="/mcmoji.png" alt="logo" class="w-12" />
