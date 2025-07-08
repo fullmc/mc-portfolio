@@ -62,7 +62,7 @@ onMounted(async () => {
 
         <!-- Description à droite -->
         <div class="flex flex-col justify-center gap-4 max-w-md pr-[3rem]">
-          <div class=" bg-white/90 rounded-full border mt-4 flex items-center gap-2 px-3 py-1 w-fit">
+          <div class=" bg-green-500/20 rounded-full mt-4 flex items-center gap-2 px-3 py-1 w-fit">
             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             <span class="text-xs font-medium">{{ $t('available_for_work') }}</span>
           </div>
@@ -74,18 +74,18 @@ onMounted(async () => {
     </section>
 
     <!-- Section Projets -->
-    <section id="projects" class="mx-[8rem]">
+    <section id="projects" class="mx-[8rem] mb-[5rem]">
       <Projects />
     </section>
 
     <!-- Section A propos -->
-    <section id="about" class="min-h-screen scroll-animate">
-      <!-- <About /> -->
+    <section id="about" class="scroll-animate">
+      <About />
     </section>
 
     <!-- Section Contact -->
-    <section id="contact" class="min-h-screen scroll-animate flex items-center justify-center">
-      <!-- <Contact /> -->
+    <section id="contact" class="flex items-center justify-center">
+      <Contact />
     </section>
   </div>
 </template>

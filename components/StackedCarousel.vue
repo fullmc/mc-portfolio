@@ -1,73 +1,34 @@
 <template>
-  <div class="stacked-carousel-container">
-    <div class="carousel-wrapper">
-      <div 
-        class="carousel-track"
-        :style="{ transform: `translateX(${currentIndex * -100}%)` }"
+  <div class="simple-carousel-container">
+    <div class="simple-carousel-viewport" ref="viewportRef">
+      <div
+        class="simple-carousel-track"
+        :style="trackStyle"
+        @transitionend="handleTransitionEnd"
       >
-        <div 
-          v-for="(image, index) in images" 
-          :key="index"
-          class="carousel-card"
-          :class="{ 
-            'active': index === currentIndex,
-            'prev': index === currentIndex - 1 || (currentIndex === 0 && index === images.length - 1),
-            'next': index === currentIndex + 1 || (currentIndex === images.length - 1 && index === 0)
-          }"
-        >
-          <img 
-            :src="image.src" 
-            :alt="image.alt"
-            class="carousel-image"
-            @click="goToSlide(index)"
-          />
-          <div class="card-overlay">
-            <div class="card-info">
-              <h3 class="card-title">{{ image.title }}</h3>
-              <p class="card-description">{{ image.description }}</p>
-            </div>
-          </div>
+        <!-- Duplique la dernière image au début -->
+        <div class="simple-carousel-slide" v-if="images.length">
+          <img :src="images[images.length-1].src" :alt="images[images.length-1].alt" class="simple-carousel-image" />
         </div>
-      </div>
-      
-      <!-- Contrôles de navigation -->
-      <button 
-        @click="previousSlide" 
-        class="nav-button prev-button"
-        aria-label="Image précédente"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      
-      <button 
-        @click="nextSlide" 
-        class="nav-button next-button"
-        aria-label="Image suivante"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      
-      <!-- Indicateurs -->
-      <!-- <div class="carousel-indicators">
-        <button
+        <!-- Slides réelles -->
+        <div
           v-for="(image, index) in images"
           :key="index"
-          @click="goToSlide(index)"
-          class="indicator"
-          :class="{ 'active': index === currentIndex }"
-          :aria-label="`Aller à l'image ${index + 1}`"
-        />
-      </div> -->
+          class="simple-carousel-slide"
+        >
+          <img :src="image.src" :alt="image.alt" class="simple-carousel-image" />
+        </div>
+        <!-- Duplique la première image à la fin -->
+        <div class="simple-carousel-slide" v-if="images.length">
+          <img :src="images[0].src" :alt="images[0].alt" class="simple-carousel-image" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
 
 const props = defineProps({
   images: {
@@ -85,26 +46,45 @@ const props = defineProps({
   }
 });
 
-const currentIndex = ref(0);
+// L'index commence à 1 (car 0 = image dupliquée à gauche)
+const currentIndex = ref(1);
+const isTransitioning = ref(true);
 let autoPlayTimer = null;
 
+const gap = 24; // px
+const viewportRef = ref(null);
+const viewportWidth = ref(0);
+
+const updateWidth = () => {
+  if (viewportRef.value) {
+    viewportWidth.value = viewportRef.value.offsetWidth;
+  }
+};
+
 const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % props.images.length;
+  if (!props.images.length) return;
+  isTransitioning.value = true;
+  currentIndex.value++;
 };
 
-const previousSlide = () => {
-  currentIndex.value = currentIndex.value === 0 
-    ? props.images.length - 1 
-    : currentIndex.value - 1;
-};
-
-const goToSlide = (index) => {
-  currentIndex.value = index;
+const handleTransitionEnd = () => {
+  // Si on est sur la fausse première image (après la dernière vraie)
+  if (currentIndex.value === props.images.length + 1) {
+    isTransitioning.value = false;
+    currentIndex.value = 1;
+  }
+  // Si on est sur la fausse dernière image (avant la première vraie)
+  if (currentIndex.value === 0) {
+    isTransitioning.value = false;
+    currentIndex.value = props.images.length;
+  }
 };
 
 const startAutoPlay = () => {
   if (props.autoPlay) {
-    autoPlayTimer = setInterval(nextSlide, props.autoPlayInterval);
+    autoPlayTimer = setInterval(() => {
+      nextSlide();
+    }, props.autoPlayInterval);
   }
 };
 
@@ -115,169 +95,75 @@ const stopAutoPlay = () => {
   }
 };
 
+const trackStyle = computed(() => ({
+  transform: `translateX(-${currentIndex.value * (viewportWidth.value + gap)}px)`,
+  transition: isTransitioning.value ? 'transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)' : 'none',
+  gap: `${gap}px`
+}));
+
 onMounted(() => {
+  updateWidth();
+  window.addEventListener('resize', updateWidth);
   startAutoPlay();
 });
 
 onUnmounted(() => {
   stopAutoPlay();
+  window.removeEventListener('resize', updateWidth);
+});
+
+// Si autoplay ou images changent, on reset
+watch(() => props.images, () => {
+  currentIndex.value = 1;
+  isTransitioning.value = true;
 });
 </script>
 
 <style scoped>
-.stacked-carousel-container {
-  @apply relative w-full max-w-[400px] h-[500px] mx-auto;
+.simple-carousel-container {
+  width: 30vw;
+  height: 70vh;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-
-.carousel-wrapper {
-  @apply relative w-full h-full overflow-hidden rounded-lg;
+.simple-carousel-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 24px;
 }
-
-.carousel-track {
-  @apply flex transition-transform duration-700 ease-out h-full;
+.simple-carousel-track {
+  display: flex;
+  height: 100%;
+  gap: 10px;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
-
-.carousel-card {
-  @apply relative flex-shrink-0 w-full h-full transition-all duration-500 ease-out;
-  transform: scale(0.8) translateY(20px);
-  opacity: 0.3;
-  z-index: 1;
+.simple-carousel-slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.carousel-card.active {
-  transform: scale(1) translateY(0);
-  opacity: 1;
-  z-index: 3;
+.simple-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  transition: filter 0.3s;
 }
-
-.carousel-card.prev {
-  transform: scale(0.9) translateY(10px) translateX(-20px);
-  opacity: 0.7;
-  z-index: 2;
-}
-
-.carousel-card.next {
-  transform: scale(0.9) translateY(10px) translateX(20px);
-  opacity: 0.7;
-  z-index: 2;
-}
-
-.carousel-image {
-  @apply w-full h-full object-cover rounded-lg cursor-pointer transition-all duration-300;
-  filter: brightness(0.9);
-}
-
-.carousel-card.active .carousel-image {
-  filter: brightness(1);
-}
-
-.carousel-card:hover .carousel-image {
-  filter: brightness(1.1);
-}
-
-.card-overlay {
-  @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 rounded-lg;
-}
-
-.carousel-card:hover .card-overlay {
-  @apply opacity-100;
-}
-
-.card-info {
-  @apply absolute bottom-4 left-4 right-4 text-white;
-}
-
-.card-title {
-  @apply text-lg font-semibold mb-1;
-}
-
-.card-description {
-  @apply text-sm opacity-90;
-}
-
-/* Contrôles de navigation */
-.nav-button {
-  @apply absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-white/30 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50;
-}
-
-.prev-button {
-  @apply left-4;
-}
-
-.next-button {
-  @apply right-4;
-}
-
-.nav-button:hover {
-  @apply shadow-lg;
-}
-
-/* Indicateurs */
-.carousel-indicators {
-  @apply absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10;
-}
-
-.indicator {
-  @apply w-3 h-3 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/60 focus:outline-none focus:ring-2 focus:ring-white/50;
-}
-
-.indicator.active {
-  @apply bg-white scale-125;
-}
-
-/* Animations d'entrée */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px) scale(0.8);
+@media (max-width: 500px) {
+  .simple-carousel-container {
+    width: 95vw;
+    height: 60vw;
+    min-height: 220px;
+    max-width: 98vw;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.carousel-card.active {
-  animation: slideIn 0.6s ease-out;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .stacked-carousel-container {
-    @apply max-w-[300px] h-[400px];
-  }
-  
-  .nav-button {
-    @apply w-10 h-10;
-  }
-  
-  .prev-button {
-    @apply left-2;
-  }
-  
-  .next-button {
-    @apply right-2;
-  }
-}
-
-/* Mode sombre */
-.dark .nav-button {
-  @apply bg-black/20 border-black/30 text-white;
-}
-
-.dark .nav-button:hover {
-  @apply bg-black/30;
-}
-
-.dark .indicator {
-  @apply bg-white/40;
-}
-
-.dark .indicator:hover {
-  @apply bg-white/60;
-}
-
-.dark .indicator.active {
-  @apply bg-white;
 }
 </style>

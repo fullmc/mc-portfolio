@@ -37,7 +37,7 @@ const carouselImages = ref([
   },
   {
     src: '/mc-adidas.png',
-    alt: '10Kdidas',
+    alt: '10K Adidas',
   },
   {
     src: '/mc-run.png',
@@ -48,8 +48,8 @@ const carouselImages = ref([
     alt: 'Un chat et moi',
   },
   {
-    src: '/mc-itza.png',
-    alt: 'Moi devant le Chichen Itza',
+    src: '/wttj.webp',
+    alt: 'Shooting WTTJ',
   },
   {
     src: '/mc-ecureuil.png',
@@ -58,7 +58,6 @@ const carouselImages = ref([
 ]);
 
 onMounted(async () => {
-  const Velocity = (await import('velocity-animate')).default;
   if (typeof window === 'undefined') return;
 
   // Animation des lettres du titre (si tu veux au scroll)
@@ -88,53 +87,47 @@ onMounted(async () => {
 
 
 <template>
-  <div class="bg-background-light dark:bg-background-dark flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em]">
-    <div>
-      <h1 class="text-[74px] font-normal sm:text-center text-secondary-light dark:text-primary-dark py-8">
-        {{ $t('about_title') }}
-      </h1>
-      
-      <!-- Section principale avec présentation -->
-      <div class="about-section mb-16">
-        <div class="flex items-center justify-between gap-16 flex-col md:flex-row">
-          <StackedCarousel :images="carouselImages" />  
-          <div class="text-sm font-light leading-[1.8] text-primary-light dark:text-primary-dark">
-            <div class="presentation-text text-justify  flex flex-col gap-4">
-              <h3>{{ $t('about_intro') }}</h3>
-              <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
-                💡 {{ $t('about_motiveTitle') }}
-              </h3>
-                <p>{{ $t('about_motive') }}</p>
-                <p>{{ $t('about_working') }}</p>
-              <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
-                🌍 {{$t('about_outsideTitle') }}
-              </h3>
-                <p>{{ $t('about_outside') }}</p>
-            </div>
+  <div class="flex flex-col gap-8 mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em]">
+    <h1 class="text-5xl text-center font-normal text-primary-light dark:text-primary-dark sm:text-left">
+      {{ $t('about_title') }}
+    </h1>
+    <!-- Section principale avec présentation -->
+    <section class="about-section">
+      <div class="about-grid">
+        <div class="about-carousel">
+          <StackedCarousel :images="carouselImages" />
+        </div>
+        <div class="about-text">
+          <div class="flex flex-col gap-4 leading-[1.8]">
+            <p class="font-light">{{ $t('about_intro') }}</p>
+            <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+              💡 {{ $t('about_motiveTitle') }}
+            </h3>
+              <p class="font-light">{{ $t('about_motive') }}</p>
+              <p class="font-light">{{ $t('about_working') }}</p>
+            <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+              🌍 {{$t('about_outsideTitle') }}
+            </h3>
+              <p class="font-light">{{ $t('about_outside') }}</p>
           </div>
         </div>
       </div>
+    </section>
 
-
-
-      <div class="flex justify-between flex-col items-center lg:flex-row gap-8">
-        <!-- Grille des technologies -->
-        <div class="flex-1">
-          <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 text-center ">
-            {{ $t('stack_title') }}
-          </h2>
-          <div class="tech-grid">
-            <AnimatedTooltip :items="technologies" />
-          </div>
+    <div class="flex justify-between">
+      <div class="max-w-[42vw] flex-1">
+        <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 ">
+          {{ $t('stack_title') }}
+        </h2>
+        <div>
+          <AnimatedTooltip :items="technologies" />
         </div>
-
-        <!-- Localisation -->
-        <div class="flex flex-col lg:ml-8">
-          <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6">
-            🗺️ {{ $t('location_title') }}
-          </h2>
-          <Globe class="-mt-16"/>
-        </div>
+      </div>
+      <div>
+        <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6">
+          🗺️ {{ $t('location_title') }}
+        </h2>
+        <Globe class="-mt-16"/>
       </div>
     </div>
   </div>
@@ -287,5 +280,36 @@ html.dark .p-tooltip .p-tooltip-text {
 
 .tech-section:hover * {
   @apply will-change-transform;
+}
+
+.about-section {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.about-grid {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.about-carousel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-text {
+  flex: 1 1 0;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  .about-text {
+    max-width: 100%;
+  }
 }
 </style>

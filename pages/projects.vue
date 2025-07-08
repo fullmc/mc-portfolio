@@ -93,7 +93,7 @@ const projects = ref<IProject[]>([
 
 </script>
 <template>
-  <div class="h-screen flex flex-col gap-4">
+  <div class="flex flex-col">
     <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mb-8">
       {{ $t('my_projects') }}
     </h1>
