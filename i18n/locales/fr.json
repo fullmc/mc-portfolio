@@ -30,7 +30,7 @@
   "contact_text": "et discutons de votre projet.",
   "desc": "Décrivez votre projet...",
   "send": "Envoyer",
-  "orbital_desc": "Petit projet interactif en 3D permettant de naviguer dans un univers immersif.",
+  "orbital_desc": "Mini projet 3D immersif interactif",
   "orbital_tasks": "Développement front-end, animation 3D.",
   "enigmaquest_desc": "Jeu d'énigmes multijoueur en temps réel.",
   "enigmaquest_tasks": "Développement fullstack, WebSockets.",

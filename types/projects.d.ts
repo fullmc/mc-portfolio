@@ -5,4 +5,5 @@ export interface IProject {
   frontTech: Tech[];
   backTech: Tech[];
   link?: string;
+  image?: string;
 }

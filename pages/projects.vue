@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { animateOnScroll } from '@/utils/scroll-animate'
-import AnimatedGradientText from '@/components/AnimatedGradientText.vue'
 import type { IProject } from '@/types/projects'
-import { cn } from '@/lib/utils'
 
 import { useColorMode } from '#imports'
 
@@ -14,6 +11,7 @@ const projects = ref<IProject[]>([
     title: "Orbital",
     descriptionKey: "orbital_desc",
     tasksKey: "orbital_tasks",
+    image: "/orbital.webp",
     frontTech: [
       { name: "ThreeJS", icon: "/treejs-dark.svg", iconDark: "/treejs-light.svg" },
       { name: "HTML", icon: "/html.svg" },
@@ -27,6 +25,7 @@ const projects = ref<IProject[]>([
     title: "EnigmaQuest",
     descriptionKey: "enigmaquest_desc",
     tasksKey: "enigmaquest_tasks",
+    image: "/enigmaquest.webp",
     frontTech: [
       { name: "VueJS", icon: "/vuejs.svg" },
       { name: "Express", icon: "/express.svg" },
@@ -42,6 +41,7 @@ const projects = ref<IProject[]>([
     title: "Vortex",
     descriptionKey: "vortex_desc",
     tasksKey: "vortex_tasks",
+    image: "/vortex.webp",
     frontTech: [
       { name: "React", icon: "/react.svg" },
       { name: "TailwindCSS", icon: "/tailwind.svg" },
@@ -51,12 +51,13 @@ const projects = ref<IProject[]>([
       { name: "Prisma", icon: "/prisma.svg", iconDark: "/prisma-dark.svg" },    
       { name: "SQLite", icon: "/sqlite.svg" },
     ],
-    link: "https://github.com/fullmc/vortex"
+    link: "https://github.com/fullmc/next-booking"
   },
   {
     title: "Pokedex",
     descriptionKey: "pokedex_desc",
     tasksKey: "pokedex_tasks",
+    image: "/pokemon.webp",
     frontTech: [
       { name: "VueJS", icon: "/vuejs.svg" },
 
@@ -68,6 +69,7 @@ const projects = ref<IProject[]>([
     title: "WeatherApp",
     descriptionKey: "weatherapp_desc",
     tasksKey: "weatherapp_tasks",
+    image: "/weather.webp",
     frontTech: [
       { name: "HTML", icon: "/html.svg" },
       { name: "CSS", icon: "/css.svg" },
@@ -80,6 +82,7 @@ const projects = ref<IProject[]>([
     title: "Call me maybe",
     descriptionKey: "phonesystem_desc",
     tasksKey: "phonesystem_tasks",
+    image: "/phonecall.webp",
     frontTech: [
       { name: "VueJS", icon: "/vuejs.svg" },
     ],
@@ -90,18 +93,50 @@ const projects = ref<IProject[]>([
 
 </script>
 <template>
-  <div class="h-screen flex flex-col">
-    <div class="w-full">
-      <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mb-8">
-        {{ $t('my_projects') }}
-      </h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="(project, index) in projects" 
-          :key="index" 
-          class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[300px] relative">
-          <p class="text-2xl text-left font-normal text-primary-light dark:text-primary-dark absolute bottom-6 left-4">
-            {{ project.title }}
+  <div class="h-screen flex flex-col gap-4">
+    <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mb-8">
+      {{ $t('my_projects') }}
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3rem]">
+      <div
+        v-for="(project, index) in projects"
+        :key="index"
+        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[15rem] relative w-[28rem] group overflow-hidden"
+      >
+        <img :src="project.image" alt="project-placeholder" class="absolute bottom-0 right-0 w-full h-full object-cover z-0" />
+        <div
+          class="project-info absolute bottom-0 left-0 z-10 dark:bg-background-dark/80 px-6 shadow-lg transition-all duration-300 w-full group-hover:-translate-y-16 group-hover:shadow-2xl"
+        >
+          <p class="text-2xl font-medium tracking-wide text-primary-dark mb-2 hover:text-sm">{{ project.title }}</p>
+          <p
+            class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-300 text-primary-dark text-sm"
+          >
+            {{ $t(project.descriptionKey) }}
           </p>
+          <div v-if="project.frontTech"
+            class="flex gap-2 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300"
+          >
+            <p class="text-sm text-primary-dark ">Front:</p>
+            <img
+              v-for="(tech, i) in project.frontTech"
+              :key="i"
+              :src="tech.iconDark ? tech.iconDark : tech.icon"
+              :alt="tech.name"
+              class="w-5 h-5"
+            />
+          </div>
+          <div v-if="project.backTech.length > 0"
+            class="flex gap-2 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300"
+          >
+            <p class="text-sm text-primary-dark">Back:</p>
+            <img
+              v-for="(tech, i) in project.backTech"
+              :key="i"
+              :src="tech.iconDark ? tech.iconDark : tech.icon"
+              :alt="tech.name"
+              class="w-4 h-4"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -126,17 +161,17 @@ const projects = ref<IProject[]>([
 
 .project-card:hover {
   transform: translateY(-8px) scale(1.05);
-  border-color: #E87B35;
+  border-color: #D8CBB7;
   box-shadow: 
-    0 1px 32px rgba(250, 248, 240, 0.5),
-    inset 0 0 1px #E87B35;
+  0 1px 32px rgba(232, 123, 53, 0.3),
+  inset 0 0 1px #E87B35;
 }
 
 .dark .project-card:hover {
-  border-color: #E87B35;
+  border-color: #475569;
   box-shadow: 
-    0 1px 32px rgba(232, 123, 53, 0.3),
-    inset 0 0 1px #E87B35;
+    0 1px 32px rgba(255, 255, 255, 0.2),
+    inset 0 0 1px #475569;
 }
 
 .project-card:hover::before {
@@ -161,5 +196,15 @@ const projects = ref<IProject[]>([
 .project-card:hover svg {
   transform: rotate(45deg) scale(1.1);
   transition: all 0.3s ease;
+}
+
+.project-info {
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.4), transparent);
+  padding-top: 1rem;
+}
+.group:hover .project-info {
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.8), transparent);
+  transform: translateY(-0.1rem) scale(1.04);
+  padding-bottom: 1rem;
 }
 </style>
