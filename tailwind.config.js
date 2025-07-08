@@ -11,6 +11,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'bricolage': ['Bricolage Grotesque', 'sans-serif'],
+      },
       animation: {
         gradient: 'gradient 8s linear infinite',
       },

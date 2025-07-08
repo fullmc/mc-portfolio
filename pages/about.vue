@@ -94,8 +94,8 @@ onMounted(async () => {
     <!-- Section principale avec présentation -->
     <section class="about-section">
       <div class="about-grid">
-        <div class="about-carousel">
-          <StackedCarousel :images="carouselImages" />
+        <div class="about-carousel ">
+          <StackedCarousel :images="carouselImages"/>
         </div>
         <div class="about-text">
           <div class="flex flex-col gap-4 leading-[1.8]">
@@ -114,9 +114,9 @@ onMounted(async () => {
       </div>
     </section>
 
-    <div class="flex justify-between">
-      <div class="max-w-[42vw] flex-1">
-        <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 ">
+    <div class="flex justify-between max-xl:flex-col max-xl:items-center max-xl:gap-[6rem]"  >
+      <div class="flex-1 flex-col gap-2 max-w-[38vw] max-xl:max-w-full">
+        <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 text-center">
           {{ $t('stack_title') }}
         </h2>
         <div>
@@ -302,7 +302,7 @@ html.dark .p-tooltip .p-tooltip-text {
   flex: 1 1 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .about-grid {
     flex-direction: column;
     gap: 2rem;
@@ -310,6 +310,12 @@ html.dark .p-tooltip .p-tooltip-text {
   }
   .about-text {
     max-width: 100%;
+  }
+  .about-carousel {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 }
 </style>

@@ -158,7 +158,7 @@ watch(() => props.images, () => {
   border-radius: 24px;
   transition: filter 0.3s;
 }
-@media (max-width: 500px) {
+@media (max-width: 1024px) {
   .simple-carousel-container {
     width: 95vw;
     height: 60vw;

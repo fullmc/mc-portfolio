@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
+import { useColorMode } from '#imports'
 
 const config = useRuntimeConfig()
 console.log('test', config.public.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID)
@@ -10,6 +11,9 @@ const formData = ref({
   email: '',
   message: ''
 })
+
+const colorMode = useColorMode()
+const isDark = computed(() => colorMode.value === 'dark')
 
 onMounted(async () => {
   const Velocity = (await import('velocity-animate')).default;
@@ -57,48 +61,61 @@ const sendEmail = async () => {
 </script>
 
 <template>
-  <div class=" bg-background-light dark:bg-background-dark text-primary-light dark:text-primary-dark py-20">
-    <div class="max-w-4xl mx-auto px-6">
-      <!-- Section titre et texte d'accroche avec animation fade-in -->
-      <div v-motion :initial="{ opacity: 0, y: 100 }" :enter="{ opacity: 1, y: 0 }" :delay="200"
-        class="mb-16 text-center">
-        <h1 class="text-6xl font-medium mb-6 dark:text-secondary-dark text-secondary-light tracking-wider">{{
-          $t('contact') }}</h1>
-        <p class="text-2xl text-secondary-light dark:text-secondary-dark max-w-2xl mx-auto font-normal">
-          {{ $t('contact_text') }}
-        </p>
-      </div>
-
-      <div ref="formContainer"
-        class="max-w-md mx-auto p-8 rounded-2xl dark:bg-white/5 border-black/10 bg-secondary-light/10 backdrop-blur-sm border dark:border-white/10 relative overflow-hidden group">
-        <!-- Effet de brillance au hover -->
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shine">
+  <div class="flex w-screen min-h-screen">
+    <div class=" bg-secondary-light/30 dark:bg-[#030508]/20 w-full mx-[8rem] my-[4rem] px-[6rem] grid grid-cols-2 gap-10 rounded-2xl shadow-lg border border-[#39383f]">
+      <div class="my-auto">
+        <h2 class="text-6xl tracking-wide font-extrabold mb-8">Contact me</h2>
+        <form class="space-y-6 max-w-[30vw]">
+          <div>
+            <label class="block mb-2" for="name">Nom Prénom</label>
+            <input
+              id="name"
+              type="text"
+              class="w-full bg-transparent border border-[#39383f] rounded-md px-4 py-3  placeholder-secondary-dark/40 dark:placeholder-secondary-dark "
+              placeholder="Jane Doe"
+            />
           </div>
-        </div>
-
-        <form @submit.prevent="sendEmail" class="flex flex-col gap-6 relative">
-          <div class="flex flex-col gap-2">
-            <label for="email" class="text-sm">Email</label>
-            <input type="email" id="email" v-model="formData.email" required
-              class="bg-white/10 border border-secondary-light dark:border-secondary-dark rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300 hover:border-2 dark:hover:border-2">
+          <div>
+            <label class="block mb-2" for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              class="w-full bg-transparent border border-[#39383f] rounded-md px-4 py-3  placeholder-secondary-dark/40 dark:placeholder-secondary-dark  "
+              placeholder="jane.doe@gmail.com"
+            />
           </div>
-
-          <div class="flex flex-col gap-2">
-            <label for="message" class="text-sm">Message</label>
-            <textarea id="message" v-model="formData.message" required rows="5"
-              class="bg-white/10 border border-secondary-light dark:border-secondary-dark rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300 hover:border-2 dark:hover:border-2"
-              :placeholder="$t('desc')"></textarea>
+          <div>
+            <label class="block mb-2" for="message">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              class="w-full bg-transparent border border-[#39383f] rounded-md px-4 py-3  placeholder-secondary-dark/40 dark:placeholder-secondary-dark "
+              placeholder="Write your message..."
+            ></textarea>
           </div>
-
-          <button name="sendEmail" aria-label="Send email" type="submit"
-            class="mt-4 bg-secondary-light dark:bg-secondary-dark text-background-light dark:text-background-dark py-4 px-8 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg relative overflow-hidden group">
-            <span class="relative z-10 dark:text-primary-dark">{{ $t('send') }}</span>
-            <div
-              class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700">
-            </div>
-          </button>
+        
+          <div class="flex items-center gap-4">
+            <button
+            type="submit"
+            class="flex items-center gap-2 bg-primary-light dark:bg-primary-dark/85 hover:bg-orange-500 dark:hover:bg-orange-500 dark:hover:text-primary-dark transition-colors dark:text-primary-light text-primary-dark font-semibold px-8 py-3 rounded-lg"
+          >
+            Submit
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+              <a href="https://www.linkedin.com/in/marie-claire-lambo-0838a917b/" target="_blank" class="font-semibold px-4 py-3 rounded-lg border-2 border-primary-light dark:border-primary-dark inline-flex items-center justify-center">
+                <img :src="isDark ? '/linkedin-dark.svg' : '/linkedin.svg'" alt="LinkedIn" class="w-6 h-6">
+              </a>
+              <a href="https://github.com/fullmc" target="_blank" class="font-semibold px-4 py-3 rounded-lg border-2 border-primary-light dark:border-primary-dark inline-flex items-center justify-center">
+                <img :src="isDark ? '/github-dark.svg' : '/github.svg'" alt="GitHub" class="w-6 h-6">
+              </a>
+          </div>
         </form>
+      </div>
+      <div class="m-auto">
+        <img src="/proto.webp" class="rounded-2xl border border-primary-light dark:border-primary-dark">
+         <!-- <h2 class="text-8xl font-bold">blabla</h2> -->
       </div>
     </div>
   </div>

@@ -66,7 +66,7 @@ const getTooltipColors = (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-start gap-6">
+  <div class="flex flex-wrap justify-center gap-6">
     <div 
       v-for="(item, idx) in props.items" 
       :key="item.id"
@@ -155,7 +155,7 @@ const getTooltipColors = (index: number) => {
           <img
             :src="item.image"
             :alt="item.name"
-            class="h-12 w-12 object-contain transition-all duration-500 group-hover:drop-shadow-lg"
+            class="h-14 w-14 object-contain transition-all duration-500 group-hover:drop-shadow-lg"
             @mousemove="handleMouseMove"
           />
         </div>

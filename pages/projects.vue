@@ -101,13 +101,13 @@ const projects = ref<IProject[]>([
       <div
         v-for="(project, index) in projects"
         :key="index"
-        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[15rem] relative w-[28rem] group overflow-hidden"
+        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[15vw] relative w-[28vw] group overflow-hidden"
       >
         <img :src="project.image" alt="project-placeholder" class="absolute bottom-0 right-0 w-full h-full object-cover z-0" />
         <div
           class="project-info absolute bottom-0 left-0 z-10 dark:bg-background-dark/80 px-6 shadow-lg transition-all duration-300 w-full group-hover:-translate-y-16 group-hover:shadow-2xl"
         >
-          <p class="text-2xl font-medium tracking-wide text-primary-dark mb-2 hover:text-sm">{{ project.title }}</p>
+          <p class="text-2xl font-medium tracking-wide text-primary-dark mb-2">{{ project.title }}</p>
           <p
             class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-300 text-primary-dark text-sm"
           >
@@ -206,5 +206,11 @@ const projects = ref<IProject[]>([
   background: linear-gradient(to top, rgba(17, 24, 39, 0.8), transparent);
   transform: translateY(-0.1rem) scale(1.04);
   padding-bottom: 1rem;
+}
+
+@media (min-width: 1024px){
+  .project-card {
+    width: 24vw;
+  }
 }
 </style>
