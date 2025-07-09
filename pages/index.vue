@@ -47,7 +47,7 @@ onMounted(async () => {
         {{ $t('home_id') }}
       </h1>
       <!-- Section avec disposition horizontale -->
-      <div class="flex items-center justify-between w-full px-[12rem] flex-1">
+      <div class="flex items-start justify-between w-full px-[12rem] flex-1">
         <!-- Metrics à gauche -->
         <div class="flex flex-col gap-6 text-left">
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">3+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('years_experience') }}</span></div>
@@ -55,8 +55,20 @@ onMounted(async () => {
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">2+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('technologies') }}</span></div>
         </div>
 
+        <!-- Blur gauche -->
+        <img
+          src="/blur.png"
+          class="absolute -left-[14%] top-1/2 -translate-y-1/2 w-[60vw] z-0 pointer-events-none select-none"
+          alt="blur"
+        />
+        <!-- Blur rose droite -->
+        <img
+          src="/pink-blur.png"
+          class="absolute right-[-10%] bottom-[-25%] w-[50vw] z-0 pointer-events-none select-none"
+          alt="pink blur"
+        />
         <!-- Photo au centre -->
-        <div class="">
+        <div>
           <img src="/nana-nobg.webp" alt="profile" class="h-[80vh] absolute bottom-0 transform -translate-x-1/4" />
         </div>
 

@@ -2,11 +2,13 @@
   "about_link": "À propos",
   "projects_link": "Projets",
   "contact_link": "Contact",
+
   "home_id": "Marie-Claire\nLAMBO",
   "home_dev": "Développeuse front-end",
   "home_description": "Passionnée par la création d'expériences web modernes et intuitives. J’aime créer des sites web clairs et simples: j’allie imagination et savoir-faire pour créer des interfaces accessibles et user-friendly.",
   "home_cv": "Télécharger mon CV",
   "download_cv": "Télécharger CV",
+
   "view_projects": "Voir mes projets",
   "nav_projects": "Projets",
   "nav_about": "À propos",
@@ -15,6 +17,7 @@
   "projects_completed": "Projets réalisés",
   "technologies": "Technologies maîtrisées",
   "available_for_work": "Disponible",
+
   "about_title": "À propos",
   "about_intro": "Mon parcours a commencé dans les ressources humaines, avant de prendre un tournant inattendu vers le développement web. Après plusieurs formations en autodidacte, j'ai intégré une école spécialisée pour approfondir mes compétences, et aujourd'hui, je m'épanouis pleinement dans ce domaine.",
   "about_motiveTitle": "Ce qui me motive",
@@ -22,24 +25,32 @@
   "about_working": "En général, je suis plutôt observatrice. J'aime prendre le temps de comprendre, écouter, poser les bonnes questions, communiquer (!). J'ai besoin d'un environnement bienveillant et de confiance pour m'exprimer pleinement, et quand c'est le cas, je suis super impliquée, et toujours partante pour collaborer.",
   "about_outsideTitle": "Et en dehors du code ?",
   "about_outside": "Je suis animée par la découverte : j'aime énormément voyager, échanger, m'ouvrir à de nouveaux points de vue, à travers les discussions, la lecture ou les expériences de vie. Globalement, j'aime apprendre des autres et explorer tout ce qui peut enrichir ma vision du monde.",
+  
   "stack_title": "🛠️ Compétences techniques",
   "my_projects": "Mes projets",
   "location_title": "Dispo sur place ou à distance, où que vous soyez :)",
   "view": "Voir",
+
   "contact": "Contactez-moi",
   "contact_text": "et discutons de votre projet.",
   "desc": "Décrivez votre projet...",
   "send": "Envoyer",
+
   "orbital_desc": "Mini projet 3D immersif interactif",
   "orbital_tasks": "Développement front-end, animation 3D.",
+
   "enigmaquest_desc": "Jeu d'énigmes multijoueur en temps réel.",
   "enigmaquest_tasks": "Développement fullstack, WebSockets.",
+
   "vortex_desc": "Site de réservation d'activités insolites.",
   "vortex_tasks": "Développement fullstack, base de données.",
+
   "pokedex_desc": "Catalogue interactif de pokémons.",
   "pokedex_tasks": "Développement front-end, API.",
+
   "weatherapp_desc": "Application affichant la météo par ville",
   "weatherapp_tasks": "Développement front-end.",
+
   "phonesystem_desc": "Mini système de téléphonie avec gestion d'appels et de contacts.",
   "phonesystem_tasks": "Développement front-end."
 }

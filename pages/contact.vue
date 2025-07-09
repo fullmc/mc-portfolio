@@ -64,7 +64,7 @@ const sendEmail = async () => {
   <div class="flex w-screen min-h-screen">
     <div class=" bg-secondary-light/30 dark:bg-[#030508]/20 w-full mx-[8rem] my-[4rem] px-[6rem] grid grid-cols-2 gap-10 rounded-2xl shadow-lg border border-[#39383f]">
       <div class="my-auto">
-        <h2 class="text-6xl tracking-wide font-extrabold mb-8">Contact me</h2>
+        <h2 class="text-6xl tracking-wide font-extrabold mb-8">{{ $t('contact') }}</h2>
         <form class="space-y-6 max-w-[30vw]">
           <div>
             <label class="block mb-2" for="name">Nom Prénom</label>
@@ -90,7 +90,7 @@ const sendEmail = async () => {
               id="message"
               rows="4"
               class="w-full bg-transparent border border-[#39383f] rounded-md px-4 py-3  placeholder-secondary-dark/40 dark:placeholder-secondary-dark "
-              placeholder="Write your message..."
+              :placeholder="$t('desc')"
             ></textarea>
           </div>
         
@@ -99,7 +99,7 @@ const sendEmail = async () => {
             type="submit"
             class="flex items-center gap-2 bg-primary-light dark:bg-primary-dark/85 hover:bg-orange-500 dark:hover:bg-orange-500 dark:hover:text-primary-dark transition-colors dark:text-primary-light text-primary-dark font-semibold px-8 py-3 rounded-lg"
           >
-            Submit
+            {{ $t('send') }}
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
               </svg>
