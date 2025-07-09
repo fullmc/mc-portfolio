@@ -87,7 +87,7 @@ onMounted(async () => {
 
 
 <template>
-  <div class="flex flex-col gap-8 mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em]">
+  <div class="flex flex-col gap-4 mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em]">
     <h1 class="text-5xl text-center font-normal text-primary-light dark:text-primary-dark sm:text-left">
       {{ $t('about_title') }}
     </h1>

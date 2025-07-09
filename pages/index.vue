@@ -37,19 +37,19 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="relative overflow-hidden flex flex-col gap-[5rem]" id="home">
+  <div class="relative overflow-hidden flex flex-col" id="home">
     <!-- Section home -->
-    <section class="relative h-screen flex flex-col items-center pt-[8rem] px-[8rem]">
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-[8rem]">
       <div class="text-orange-500 text-[1rem] w-fit bg-orange-500/10 px-4 py-2 rounded-xl">
         {{ $t('home_dev') }}
       </div>
-      <h1 class="md:text-[8vw] tracking-wider font-semibold text-center w-full">
+      <h1 class="text-[8vw] tracking-[0.4vw] font-semibold text-center w-full">
         {{ $t('home_id') }}
       </h1>
       <!-- Section avec disposition horizontale -->
-      <div class="flex items-center justify-between w-full">
+      <div class="flex items-center justify-between w-full px-[12rem] flex-1">
         <!-- Metrics à gauche -->
-        <div class="flex flex-col gap-6 text-left pl-[6rem] pt-[2rem]">
+        <div class="flex flex-col gap-6 text-left">
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">3+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('years_experience') }}</span></div>
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">5+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('projects_completed') }}</span></div>
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">2+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('technologies') }}</span></div>
@@ -57,11 +57,11 @@ onMounted(async () => {
 
         <!-- Photo au centre -->
         <div class="">
-          <img src="/nana-nobg.webp" alt="profile" class="h-[80vh] absolute bottom-0 transform -translate-x-1/3" />
+          <img src="/nana-nobg.webp" alt="profile" class="h-[80vh] absolute bottom-0 transform -translate-x-1/4" />
         </div>
 
         <!-- Description à droite -->
-        <div class="flex flex-col justify-center gap-4 max-w-md pr-[3rem]">
+        <div class="flex flex-col justify-center gap-4 max-w-md pl-[6rem]">
           <div class=" bg-green-500/20 rounded-full mt-4 flex items-center gap-2 px-3 py-1 w-fit">
             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             <span class="text-xs font-medium">{{ $t('available_for_work') }}</span>
@@ -74,17 +74,17 @@ onMounted(async () => {
     </section>
 
     <!-- Section Projets -->
-    <section id="projects" class="mx-[8rem] mb-[5rem]">
+    <section id="projects" class="min-h-screen mx-[8rem] flex items-center">
       <Projects />
     </section>
 
     <!-- Section A propos -->
-    <section id="about" class="scroll-animate">
+    <section id="about" class="min-h-screen scroll-animate flex items-center">
       <About />
     </section>
 
     <!-- Section Contact -->
-    <section id="contact" class="flex items-center justify-center">
+    <section id="contact" class="min-h-screen flex items-center justify-center">
       <Contact />
     </section>
   </div>
