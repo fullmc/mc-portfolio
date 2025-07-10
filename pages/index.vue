@@ -47,10 +47,10 @@ onMounted(async () => {
         {{ $t('home_id') }}
       </h1>
       <!-- Section avec disposition horizontale -->
-      <div class="flex items-start justify-between w-full px-[12rem] flex-1">
+      <div class="flex flex-col gap-6 lg:flex-row lg:justify-between w-full lg:px-[12rem] pl-[4rem] pr-[4rem] lg:pl-0 flex-1">
         <!-- Metrics à gauche -->
-        <div class="flex flex-col gap-6 text-left">
-          <div class="text-orange-500 text-[2rem] flex flex-col items-center">3+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('years_experience') }}</span></div>
+        <div class="flex gap-6 lg:flex-col lg:gap-6 lg:text-left flex-wrap max-w-[20rem] lg:max-w-none">
+          <div class="text-orange-500 text-[2rem] flex flex-col items-center">3+<span class="block text-base text-primary-light dark:text-primary-dark ">{{ $t('years_experience') }}</span></div>
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">5+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('projects_completed') }}</span></div>
           <div class="text-orange-500 text-[2rem] flex flex-col items-center">2+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('technologies') }}</span></div>
         </div>
@@ -67,13 +67,9 @@ onMounted(async () => {
           class="absolute right-[-10%] bottom-[-25%] w-[50vw] z-0 pointer-events-none select-none"
           alt="pink blur"
         />
-        <!-- Photo au centre -->
-        <div>
-          <img src="/nana-nobg.webp" alt="profile" class="h-[80vh] absolute bottom-0 transform -translate-x-1/4" />
-        </div>
 
         <!-- Description à droite -->
-        <div class="flex flex-col justify-center gap-4 max-w-md pl-[6rem]">
+        <div class="flex flex-col justify-center gap-4 lg:pl-[6rem] max-w-[20rem] lg:max-w-none">
           <div class=" bg-green-500/20 rounded-full mt-4 flex items-center gap-2 px-3 py-1 w-fit">
             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             <span class="text-xs font-medium">{{ $t('available_for_work') }}</span>
@@ -82,6 +78,10 @@ onMounted(async () => {
             {{ $t("home_description") }}
           </p>
         </div>
+      </div>
+              <!-- Photo au centre -->
+      <div>
+        <img src="/nana-nobg.webp" alt="profile" class="h-[80vh] absolute bottom-0 lg:transform lg:-translate-x-1/2" />
       </div>
     </section>
 
