@@ -121,7 +121,7 @@ watch(() => props.images, () => {
 
 <style scoped>
 .simple-carousel-container {
-  width: 30vw;
+  width: 80vw;
   height: 70vh;
   border-radius: 24px;
   overflow: hidden;
@@ -140,11 +140,10 @@ watch(() => props.images, () => {
 .simple-carousel-track {
   display: flex;
   height: 100%;
-  gap: 10px;
   transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 .simple-carousel-slide {
-  width: 100%;
+  width: 80vw;
   height: 100%;
   flex-shrink: 0;
   display: flex;
@@ -158,12 +157,12 @@ watch(() => props.images, () => {
   border-radius: 24px;
   transition: filter 0.3s;
 }
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .simple-carousel-container {
     width: 95vw;
     height: 60vw;
     min-height: 220px;
     max-width: 98vw;
   }
-}
+} */
 </style>

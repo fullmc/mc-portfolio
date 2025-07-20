@@ -93,21 +93,21 @@ const projects = ref<IProject[]>([
 
 </script>
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2 mx-auto">
     <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mb-8">
       {{ $t('my_projects') }}
     </h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3rem]">
+    <div class="grid place-items-center grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-[3rem]">
       <div
         v-for="(project, index) in projects"
         :key="index"
-        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[15vw] relative w-[28vw] group overflow-hidden"
+        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[20vh] relative w-[40vw] group overflow-hidden"
       >
         <img :src="project.image" alt="project-placeholder" class="absolute bottom-0 right-0 w-full h-full object-cover z-0" />
         <div
           class="project-info absolute bottom-0 left-0 z-10 dark:bg-background-dark/80 px-6 shadow-lg transition-all duration-300 w-full group-hover:-translate-y-16 group-hover:shadow-2xl"
         >
-          <p class="text-2xl font-medium tracking-wide text-primary-dark mb-2">{{ project.title }}</p>
+          <p class="text-sm text-wrap font-medium tracking-wide text-primary-dark sm:text-xl sm:mb-2">{{ project.title }}</p>
           <p
             class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-300 text-primary-dark text-sm"
           >
@@ -211,6 +211,7 @@ const projects = ref<IProject[]>([
 @media (min-width: 1024px){
   .project-card {
     width: 24vw;
+    height: 24vh;
   }
 }
 </style>

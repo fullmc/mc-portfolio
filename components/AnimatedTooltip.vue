@@ -66,7 +66,7 @@ const getTooltipColors = (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center gap-6">
+  <div class="flex flex-wrap justify-center gap-6 mx-[4rem]">
     <div 
       v-for="(item, idx) in props.items" 
       :key="item.id"

@@ -39,7 +39,7 @@ onMounted(async () => {
 <template>
   <div class="relative overflow-hidden flex flex-col" id="home">
     <!-- Section home -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center pt-[8rem]">
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-[8rem] gap-6">
       <div class="text-orange-500 text-[1rem] w-fit bg-orange-500/10 px-4 py-2 rounded-xl">
         {{ $t('home_dev') }}
       </div>
@@ -47,12 +47,12 @@ onMounted(async () => {
         {{ $t('home_id') }}
       </h1>
       <!-- Section avec disposition horizontale -->
-      <div class="flex flex-col gap-6 lg:flex-row lg:justify-between w-full lg:px-[12rem] pl-[4rem] pr-[4rem] lg:pl-0 flex-1">
+      <div class="flex flex-col gap-6 lg:flex-row lg:justify-between lg:items-start lg:mt-8 w-full lg:pl-[8rem] xl:pl-[12rem] pl-[4rem] pr-[4rem] flex-1">
         <!-- Metrics à gauche -->
-        <div class="flex gap-6 lg:flex-col lg:gap-6 lg:text-left flex-wrap max-w-[20rem] lg:max-w-none">
-          <div class="text-orange-500 text-[2rem] flex flex-col items-center">3+<span class="block text-base text-primary-light dark:text-primary-dark ">{{ $t('years_experience') }}</span></div>
-          <div class="text-orange-500 text-[2rem] flex flex-col items-center">5+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('projects_completed') }}</span></div>
-          <div class="text-orange-500 text-[2rem] flex flex-col items-center">2+<span class="block text-base text-primary-light dark:text-primary-dark">{{ $t('technologies') }}</span></div>
+        <div class="flex gap-6 justify-center items-center text-center mx-auto text-base max-w-[20rem] sm:items-start sm:mx-0 lg:flex-col lg:items-center lg:gap-6 lg:max-w-none flex-wrap sm:flex-nowrap">
+          <div class="text-orange-500 flex flex-col items-center">3+<span class="block  text-primary-light dark:text-primary-dark ">{{ $t('years_experience') }}</span></div>
+          <div class="text-orange-500 flex flex-col items-center">5+<span class="block  text-primary-light dark:text-primary-dark">{{ $t('projects_completed') }}</span></div>
+          <div class="text-orange-500 flex flex-col items-center">2+<span class="block text-primary-light dark:text-primary-dark">{{ $t('technologies') }}</span></div>
         </div>
 
         <!-- Blur gauche -->
@@ -69,8 +69,8 @@ onMounted(async () => {
         />
 
         <!-- Description à droite -->
-        <div class="flex flex-col justify-center gap-4 lg:pl-[6rem] max-w-[20rem] lg:max-w-none">
-          <div class=" bg-green-500/20 rounded-full mt-4 flex items-center gap-2 px-3 py-1 w-fit">
+        <div class="flex flex-col justify-center gap-4 w-auto sm:w-[42vw] md:min-w-[20rem] lg:pl-[8rem] xl:pl-[4rem] lg:max-w-[30rem]">
+          <div class=" bg-green-500/20 rounded-full flex items-center gap-2 px-3 py-1 w-fit">
             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             <span class="text-xs font-medium">{{ $t('available_for_work') }}</span>
           </div>
@@ -79,19 +79,19 @@ onMounted(async () => {
           </p>
         </div>
       </div>
-              <!-- Photo au centre -->
+      <!-- Photo au centre -->
       <div>
-        <img src="/nana-nobg.webp" alt="profile" class="h-[80vh] absolute bottom-0 lg:transform lg:-translate-x-1/2" />
+        <img src="/nana-nobg.webp" alt="profile" class="h-[70vh] md:h-[80vh] absolute bottom-0 hidden sm:block lg:transform lg:-translate-x-1/2" />
       </div>
     </section>
 
     <!-- Section Projets -->
-    <section id="projects" class="min-h-screen mx-[8rem] flex items-center">
+    <section id="projects" class="min-h-screen flex items-center justify-center">
       <Projects />
     </section>
 
     <!-- Section A propos -->
-    <section id="about" class="min-h-screen scroll-animate flex items-center">
+    <section id="about" class="min-h-screen flex items-center justify-center">
       <About />
     </section>
 

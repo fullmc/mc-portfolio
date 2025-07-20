@@ -87,31 +87,27 @@ onMounted(async () => {
 
 
 <template>
-  <div class="flex flex-col gap-4 mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-[8em]">
-    <h1 class="text-5xl text-center font-normal text-primary-light dark:text-primary-dark sm:text-left">
+  <div class="flex flex-col gap-2 mx-[8rem]">
+    <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mx-auto sm:mx-[4rem] mb-8">
       {{ $t('about_title') }}
     </h1>
     <!-- Section principale avec présentation -->
-    <section class="about-section">
-      <div class="about-grid">
-        <div class="about-carousel ">
-          <StackedCarousel :images="carouselImages"/>
-        </div>
-        <div class="about-text">
-          <div class="flex flex-col gap-4 leading-[1.8]">
-            <p class="font-light">{{ $t('about_intro') }}</p>
-            <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
-              💡 {{ $t('about_motiveTitle') }}
-            </h3>
-              <p class="font-light">{{ $t('about_motive') }}</p>
-              <p class="font-light">{{ $t('about_working') }}</p>
-            <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
-              🌍 {{$t('about_outsideTitle') }}
-            </h3>
-              <p class="font-light">{{ $t('about_outside') }}</p>
-          </div>
-        </div>
+    <section class="flex flex-col gap-8 mx-[4rem]">
+      <div class="m-auto">
+        <StackedCarousel :images="carouselImages"/>
       </div>
+        <div class="flex flex-col gap-4 leading-[1.8]">
+          <p class="font-light">{{ $t('about_intro') }}</p>
+          <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+            💡 {{ $t('about_motiveTitle') }}
+          </h3>
+            <p class="font-light">{{ $t('about_motive') }}</p>
+            <p class="font-light">{{ $t('about_working') }}</p>
+          <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+            🌍 {{$t('about_outsideTitle') }}
+          </h3>
+            <p class="font-light">{{ $t('about_outside') }}</p>
+        </div>
     </section>
 
     <div class="flex justify-between max-xl:flex-col max-xl:items-center max-xl:gap-[6rem]"  >
@@ -123,8 +119,8 @@ onMounted(async () => {
           <AnimatedTooltip :items="technologies" />
         </div>
       </div>
-      <div>
-        <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6">
+      <div class="flex flex-col gap-2 items-center">
+        <h2 class="text-xl text-primary-light dark:text-primary-dark">
           🗺️ {{ $t('location_title') }}
         </h2>
         <Globe class="-mt-16"/>
@@ -132,190 +128,3 @@ onMounted(async () => {
     </div>
   </div>
 </template>
-
-<style lang="postcss">
-.p-tooltip .p-tooltip-text {
-  --text-color: #003049;
-  color: #003049;
-  border: 1px solid var(--secondary-dark) !important;
-}
-
-@media (min-width: 1295px) {
-  .flex-nowrap-custom {
-    flex-wrap: nowrap;
-  }
-}
-
-html.dark .p-tooltip .p-tooltip-text {
-  --text-color: #FAF8F0;
-  color: #FAF8F0;
-  border: 1px solid var(--secondary-dark) !important;
-}
-
-.group:hover {
-  box-shadow: 0 0 20px rgba(var(--secondary-light-rgb), 0.1);
-}
-
-.dark .group:hover {
-  box-shadow: 0 0 20px rgba(var(--secondary-dark-rgb), 0.1);
-}
-
-.presentation-text ul li {
-  @apply transition-all duration-300;
-}
-
-.presentation-text ul li:hover {
-  @apply translate-x-2;
-}
-
-/* Styles pour la section des technologies */
-.tech-section {
-  @apply relative overflow-hidden;
-}
-
-.tech-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(var(--secondary-light-rgb), 0.05) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-.dark .tech-section::before {
-  background: radial-gradient(circle at 50% 50%, rgba(var(--secondary-dark-rgb), 0.05) 0%, transparent 70%);
-}
-
-
-/* Animation d'entrée pour les éléments */
-.tech-section h2,
-.tech-section p {
-  @apply animate-fade-in;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
-}
-
-/* Effet de particules en arrière-plan */
-.tech-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(var(--secondary-light-rgb), 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(var(--secondary-light-rgb), 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(var(--secondary-light-rgb), 0.05) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -1;
-  animation: float-particles 20s ease-in-out infinite;
-}
-
-.dark .tech-section::after {
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(var(--secondary-dark-rgb), 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(var(--secondary-dark-rgb), 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(var(--secondary-dark-rgb), 0.05) 0%, transparent 50%);
-}
-
-@keyframes float-particles {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-20px) rotate(1deg);
-  }
-  66% {
-    transform: translateY(10px) rotate(-1deg);
-  }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .tech-section {
-    @apply px-4;
-  }
-  
-  .tech-section h2 {
-    @apply text-2xl;
-  }
-  
-  .tech-section p {
-    @apply text-base;
-  }
-}
-
-/* Amélioration des transitions globales */
-.about-section,
-.tech-section {
-  @apply transition-all duration-700 ease-out;
-}
-
-/* Effet de focus pour l'accessibilité */
-.tech-section:focus-within {
-  @apply outline-none;
-}
-
-/* Optimisation des performances */
-.tech-section * {
-  @apply will-change-auto;
-}
-
-.tech-section:hover * {
-  @apply will-change-transform;
-}
-
-.about-section {
-  width: 100%;
-  padding: 2rem 0;
-}
-
-.about-grid {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-}
-
-.about-carousel {
-  display: flex;
-  justify-content: space-between;
-}
-
-.about-text {
-  flex: 1 1 0;
-}
-
-@media (max-width: 1024px) {
-  .about-grid {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: stretch;
-  }
-  .about-text {
-    max-width: 100%;
-  }
-  .about-carousel {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-}
-</style>
