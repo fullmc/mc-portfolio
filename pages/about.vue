@@ -87,43 +87,45 @@ onMounted(async () => {
 
 
 <template>
-  <div class="flex flex-col gap-2 mx-[8rem]">
-    <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mx-auto sm:mx-[4rem] mb-8">
+  <div class="flex flex-col mx-[8rem]">
+    <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark">
       {{ $t('about_title') }}
     </h1>
     <!-- Section principale avec présentation -->
-    <section class="flex flex-col gap-8 mx-[4rem]">
-      <div class="m-auto">
-        <StackedCarousel :images="carouselImages"/>
-      </div>
-        <div class="flex flex-col gap-4 leading-[1.8]">
-          <p class="font-light">{{ $t('about_intro') }}</p>
-          <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
-            💡 {{ $t('about_motiveTitle') }}
-          </h3>
-            <p class="font-light">{{ $t('about_motive') }}</p>
-            <p class="font-light">{{ $t('about_working') }}</p>
-          <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
-            🌍 {{$t('about_outsideTitle') }}
-          </h3>
-            <p class="font-light">{{ $t('about_outside') }}</p>
+     <div class="flex flex-col gap-6">
+      <section class="flex flex-col gap-8 m-[2rem] xl:flex-row xl:mx-0">
+        <div class="m-auto">
+          <StackedCarousel :images="carouselImages"/>
         </div>
-    </section>
+          <div class="flex flex-col gap-4 leading-[1.8]">
+            <p class="font-light">{{ $t('about_intro') }}</p>
+            <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+              💡 {{ $t('about_motiveTitle') }}
+            </h3>
+              <p class="font-light">{{ $t('about_motive') }}</p>
+              <p class="font-light">{{ $t('about_working') }}</p>
+            <h3 class="text-lg font-normal text-primary-light dark:text-background-light">
+              🌍 {{$t('about_outsideTitle') }}
+            </h3>
+              <p class="font-light">{{ $t('about_outside') }}</p>
+          </div>
+      </section>
 
-    <div class="flex justify-between max-xl:flex-col max-xl:items-center max-xl:gap-[6rem]"  >
-      <div class="flex-1 flex-col gap-2 max-w-[38vw] max-xl:max-w-full">
-        <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 text-center">
-          {{ $t('stack_title') }}
-        </h2>
-        <div>
-          <AnimatedTooltip :items="technologies" />
+      <div class="flex justify-between max-xl:flex-col max-xl:items-center max-xl:gap-[6rem]"  >
+        <div class="flex-1 flex-col gap-2 max-w-[38vw] max-xl:max-w-full">
+          <h2 class="text-xl text-primary-light dark:text-primary-dark mb-6 text-center">
+            {{ $t('stack_title') }}
+          </h2>
+          <div>
+            <AnimatedTooltip :items="technologies" />
+          </div>
         </div>
-      </div>
-      <div class="flex flex-col gap-2 items-center">
-        <h2 class="text-xl text-primary-light dark:text-primary-dark">
-          🗺️ {{ $t('location_title') }}
-        </h2>
-        <Globe class="-mt-16"/>
+        <div class="flex flex-col gap-2 items-center">
+          <h2 class="text-xl text-primary-light dark:text-primary-dark">
+            🗺️ {{ $t('location_title') }}
+          </h2>
+          <Globe class="-mt-16 pl-16"/>
+        </div>
       </div>
     </div>
   </div>

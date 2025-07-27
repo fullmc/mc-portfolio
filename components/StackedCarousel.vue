@@ -121,6 +121,7 @@ watch(() => props.images, () => {
 
 <style scoped>
 .simple-carousel-container {
+  /* width: 30vw; */
   width: 80vw;
   height: 70vh;
   border-radius: 24px;
@@ -129,7 +130,7 @@ watch(() => props.images, () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  /* position: relative; */
 }
 .simple-carousel-viewport {
   width: 100%;
@@ -143,6 +144,7 @@ watch(() => props.images, () => {
   transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 .simple-carousel-slide {
+  /* width: 100%; */
   width: 80vw;
   height: 100%;
   flex-shrink: 0;
@@ -157,12 +159,15 @@ watch(() => props.images, () => {
   border-radius: 24px;
   transition: filter 0.3s;
 }
-/* @media (max-width: 1024px) {
+@media (min-width: 1280px) {
   .simple-carousel-container {
-    width: 95vw;
-    height: 60vw;
-    min-height: 220px;
+    width: 38vw;
+    height: 70vh;
     max-width: 98vw;
   }
-} */
+  .simple-carousel-slide {
+    width: 100%;
+  }
+}
+
 </style>

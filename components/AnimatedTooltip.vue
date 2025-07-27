@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'motion-v'
-import { ref, computed } from 'vue'
 
 export interface Items {
   id: number
@@ -66,7 +65,7 @@ const getTooltipColors = (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center gap-6 mx-[4rem]">
+  <div class="flex flex-wrap justify-center gap-6 ">
     <div 
       v-for="(item, idx) in props.items" 
       :key="item.id"

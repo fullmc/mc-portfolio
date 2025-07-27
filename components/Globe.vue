@@ -118,10 +118,10 @@ function handleTouchMove(e: TouchEvent) {
 </script>
 
 <template>
-  <div class="w-full max-w-[600px] aspect-[1/1]">
+  <div class="w-full max-w-[600px]  aspect-[1/1]">
     <canvas
       ref="canvasRef"
-      class="w-[500px] h-[500px] cursor-grab opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
+      class="h-[500px] cursor-grab opacity-0 transition-opacity duration-500 "
       width="1000"
       height="1000"
       @pointerdown="handlePointerDown"

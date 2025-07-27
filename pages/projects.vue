@@ -93,7 +93,7 @@ const projects = ref<IProject[]>([
 
 </script>
 <template>
-  <div class="flex flex-col gap-2 mx-auto">
+  <div class="flex flex-col gap-2">
     <h1 class="text-5xl text-left font-normal text-primary-light dark:text-primary-dark mb-8">
       {{ $t('my_projects') }}
     </h1>
@@ -116,26 +116,24 @@ const projects = ref<IProject[]>([
           <div v-if="project.frontTech"
             class="flex gap-2 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300"
           >
-            <p class="text-sm text-primary-dark ">Front:</p>
-            <img
-              v-for="(tech, i) in project.frontTech"
-              :key="i"
-              :src="tech.iconDark ? tech.iconDark : tech.icon"
-              :alt="tech.name"
-              class="w-5 h-5"
-            />
+            <div class="text-sm text-primary-dark flex gap-2 ">Front :
+              <p 
+                v-for="(tech, i) in project.frontTech" 
+                :key="i"> 
+                {{ tech.name }}{{ i < project.frontTech.length - 1 ? ',' :  '' }}
+              </p>
+            </div>
           </div>
           <div v-if="project.backTech.length > 0"
-            class="flex gap-2 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300"
+            class="flex gap-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300"
           >
-            <p class="text-sm text-primary-dark">Back:</p>
-            <img
-              v-for="(tech, i) in project.backTech"
-              :key="i"
-              :src="tech.iconDark ? tech.iconDark : tech.icon"
-              :alt="tech.name"
-              class="w-4 h-4"
-            />
+            <div class="text-sm text-primary-dark flex gap-2 ">Back :
+              <p 
+                v-for="(tech, i) in project.backTech" 
+                :key="i"> 
+                {{ tech.name }}{{ i < project.backTech.length - 1 ? ',' :  '' }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -210,8 +208,8 @@ const projects = ref<IProject[]>([
 
 @media (min-width: 1024px){
   .project-card {
-    width: 24vw;
-    height: 24vh;
+    width: 26vw;
+    height: 26vh;
   }
 }
 </style>

@@ -55,7 +55,7 @@ const scrollToSection = (sectionId: string) => {
         </button>
         <span><img src="/line.svg" alt="fr" class="w-6 h-6 dark:invert" /></span>
         <button @click="switchLanguage">
-          <img :src="locale === 'fr' ? '/france.png' : '/uk.png'" :alt="locale === 'fr' ? 'fr' : 'en'" class="w-6 h-6" />
+          <p class="">{{ locale === 'fr' ? 'FR' : 'EN' }}</p>
         </button>
       </div>
     </div>
