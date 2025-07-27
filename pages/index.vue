@@ -10,16 +10,6 @@ const { locale } = useI18n();
 
 const isVisible = ref(false);
 
-const downloadCV = () => {
-  const link = document.createElement('a');
-  const cvFileName = locale.value === 'fr' ? 'cv-fr.pdf' : 'cv-en.pdf';
-  link.href = `/${cvFileName}`;
-  link.download = cvFileName;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);  
-};
-
 onMounted(async () => {
   const Velocity = (await import('velocity-animate')).default;
   if (typeof window === 'undefined') return;

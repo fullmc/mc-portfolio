@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue'
 import { useColorMode } from '#imports'
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
 
 const config = useRuntimeConfig()
 console.log('test', config.public.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID)
@@ -14,6 +16,16 @@ const formData = ref({
 
 const colorMode = useColorMode()
 const isDark = computed(() => colorMode.value === 'dark')
+
+const downloadCV = () => {
+  const link = document.createElement('a');
+  const cvFileName = locale.value === 'fr' ? 'cv-front-fr.pdf' : 'cv-en-frontend.pdf';
+  link.href = `/${cvFileName}`;
+  link.download = cvFileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);  
+};
 
 onMounted(async () => {
   const Velocity = (await import('velocity-animate')).default;
@@ -67,7 +79,7 @@ const sendEmail = async () => {
         <h2 class="text-6xl tracking-wide text-center font-extrabold mb-8">{{ $t('contact') }}</h2>
         <form class="space-y-6 w-full">
           <div>
-            <label class="block mb-2" for="name">Nom Prénom</label>
+            <label class="block mb-2" for="name">{{$t('last_name' ) + ' ' + $t('first_name')}}</label>
             <input
               id="name"
               type="text"
@@ -94,7 +106,7 @@ const sendEmail = async () => {
             ></textarea>
           </div>
         
-          <div class="flex items-center gap-4">
+          <div class="flex flex-col items-center md:flex-row gap-4">
             <button
             type="submit"
             class="flex items-center gap-2 bg-primary-light dark:bg-primary-dark/85 hover:bg-orange-500 dark:hover:bg-orange-500 dark:hover:text-primary-dark transition-colors dark:text-primary-light text-primary-dark font-semibold px-8 py-3 rounded-xl"
@@ -104,18 +116,27 @@ const sendEmail = async () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-              <a href="https://www.linkedin.com/in/marie-claire-lambo-0838a917b/" target="_blank" class="font-semibold px-4 py-3 rounded-xl border-2 border-primary-light dark:border-primary-dark inline-flex items-center justify-center">
-                <img :src="isDark ? '/linkedin-dark.svg' : '/linkedin.svg'" alt="LinkedIn" class="w-6 h-6">
+            <div class="flex gap-4">
+              <a href="https://www.linkedin.com/in/marie-claire-lambo-0838a917b/" target="_blank" class="font-semibold p-3 rounded-xl border border-primary-light dark:border-primary-dark inline-flex items-center justify-center">
+                <img :src="isDark ? '/linkedin-dark.svg' : '/linkedin.svg'" alt="LinkedIn" class="w-4 h-4">
               </a>
-              <a href="https://github.com/fullmc" target="_blank" class="font-semibold px-4 py-3 rounded-xl border-2 border-primary-light dark:border-primary-dark inline-flex items-center justify-center">
-                <img :src="isDark ? '/github-dark.svg' : '/github.svg'" alt="GitHub" class="w-6 h-6">
+              <a href="https://github.com/fullmc" target="_blank" class="font-semibold p-3 rounded-xl border border-primary-light dark:border-primary-dark inline-flex items-center justify-center">
+                <img :src="isDark ? '/github-dark.svg' : '/github.svg'" alt="GitHub" class="w-4 h-4">
               </a>
+            </div>
+            <!-- Download CV -->
+            <button type="button" class="flex gap-2 p-2 border border-primary-light dark:border-primary-dark rounded-lg text-sm items-center" @click="downloadCV()">
+              {{ $t('download_cv') }}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+                <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+              </svg>
+            </button>
           </div>
         </form>
       </div>
       <div class="m-auto">
         <img src="/proto.webp" class="rounded-2xl border border-primary-light dark:border-primary-dark xl:block hidden">
-         <!-- <h2 class="text-8xl font-bold">blabla</h2> -->
       </div>
     </div>
   </div>

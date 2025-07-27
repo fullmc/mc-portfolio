@@ -6,8 +6,7 @@
   "home_id": "Marie-Claire\nLAMBO",
   "home_dev": "Développeuse front-end",
   "home_description": "Passionnée par la création d'expériences web modernes et intuitives. J’aime créer des sites web clairs et simples: j’allie imagination et savoir-faire pour créer des interfaces accessibles et user-friendly.",
-  "home_cv": "Télécharger mon CV",
-  "download_cv": "Télécharger CV",
+  "download_cv": "Téléchargez mon CV",
 
   "view_projects": "Voir mes projets",
   "nav_projects": "Projets",
@@ -32,6 +31,8 @@
   "view": "Voir",
 
   "contact": "Contactez-moi",
+  "last_name": "Nom",
+  "first_name": "Prénom",
   "contact_text": "et discutons de votre projet.",
   "desc": "Décrivez votre projet...",
   "send": "Envoyer",
