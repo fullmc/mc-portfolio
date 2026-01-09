@@ -19,7 +19,7 @@ const isDark = computed(() => colorMode.value === 'dark')
 
 const downloadCV = () => {
   const link = document.createElement('a');
-  const cvFileName = locale.value === 'fr' ? 'cv-front-fr.pdf' : 'cv-en-frontend.pdf';
+  const cvFileName ='cv-dev.pdf';
   link.href = `/${cvFileName}`;
   link.download = cvFileName;
   document.body.appendChild(link);
