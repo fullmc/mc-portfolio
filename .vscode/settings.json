@@ -6,6 +6,9 @@
   "editor.quickSuggestions": {
     "strings": true
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "bounded"
 
 }

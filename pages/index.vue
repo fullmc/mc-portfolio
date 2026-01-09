@@ -52,39 +52,6 @@ onMounted(async () => {
 
 <style scoped>
 
-/* Statistiques */
-.stat-item {
-  @apply flex flex-col items-center gap-1;
-}
-
-.stat-label {
-  @apply opacity-80;
-}
-
-/* Photo de profil */
-.profile-container {
-  @apply relative;
-}
-
-.profile-image {
-  @apply rounded-2xl shadow-2xl transition-all duration-500 hover:scale-105;
-}
-
-.profile-decoration {
-  @apply absolute -inset-4 bg-gradient-to-r from-secondary-light/20 to-secondary-dark/20 rounded-3xl blur-xl -z-10;
-}
-
-.status-badge {
-  @apply absolute -bottom-4 -right-4 flex items-center gap-2 px-3 py-1 bg-white/90 dark:bg-black/90 backdrop-blur-sm rounded-full border border-white/20 dark:border-black/20;
-}
-
-.status-dot {
-  @apply w-2 h-2 bg-green-500 rounded-full animate-pulse;
-}
-
-.status-text {
-  @apply text-xs font-medium text-primary-light dark:text-primary-dark;
-}
 
 /* Animations */
 @keyframes float {
@@ -124,6 +91,6 @@ onMounted(async () => {
 .profile-image,
 .nav-button,
 .cta-button {
-  @apply will-change-transform;
+  @apply will-change-transform; 
 }
 </style>

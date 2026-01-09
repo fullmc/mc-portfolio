@@ -6,20 +6,23 @@ import { useColorMode } from '#imports'
 
 const colorMode = useColorMode()
 
+const navigateToProject = (url: string) => {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
+
 const projects = ref<IProject[]>([
   {
-    title: "Orbital",
-    descriptionKey: "orbital_desc",
-    tasksKey: "orbital_tasks",
-    image: "/orbital.webp",
+    title: "Pretto",
+    descriptionKey: "pretto_desc",
+    tasksKey: "pretto_tasks",
+    image: "/pretto.png",
     frontTech: [
-      { name: "ThreeJS", icon: "/treejs-dark.svg", iconDark: "/treejs-light.svg" },
-      { name: "HTML", icon: "/html.svg" },
+      { name: "React", icon: "/react.svg" },
       { name: "CSS", icon: "/css.svg" },
-      { name: "JavaScript", icon: "/js-light.svg" },
+      { name: "Typescript", icon: "/typescript.svg" },
     ],
     backTech: [],
-    link: "https://threenception.vercel.app/"
+    link: "https://github.com/fullmc/pretto_int/tree/develop"
   },
   {
     title: "EnigmaQuest",
@@ -37,22 +40,22 @@ const projects = ref<IProject[]>([
     ],
     link: "https://socketgame.vercel.app/"
   },
-  {
-    title: "Vortex",
-    descriptionKey: "vortex_desc",
-    tasksKey: "vortex_tasks",
-    image: "/vortex.webp",
-    frontTech: [
-      { name: "React", icon: "/react.svg" },
-      { name: "TailwindCSS", icon: "/tailwind.svg" },
-      { name: "NextJS", icon: "/nextjs.svg" },
-    ],
-    backTech: [
-      { name: "Prisma", icon: "/prisma.svg", iconDark: "/prisma-dark.svg" },    
-      { name: "SQLite", icon: "/sqlite.svg" },
-    ],
-    link: "https://github.com/fullmc/next-booking"
-  },
+  // {
+  //   title: "Vortex",
+  //   descriptionKey: "vortex_desc",
+  //   tasksKey: "vortex_tasks",
+  //   image: "/vortex.webp",
+  //   frontTech: [
+  //     { name: "React", icon: "/react.svg" },
+  //     { name: "TailwindCSS", icon: "/tailwind.svg" },
+  //     { name: "NextJS", icon: "/nextjs.svg" },
+  //   ],
+  //   backTech: [
+  //     { name: "Prisma", icon: "/prisma.svg", iconDark: "/prisma-dark.svg" },    
+  //     { name: "SQLite", icon: "/sqlite.svg" },
+  //   ],
+  //   link: "https://github.com/fullmc/next-booking"
+  // },
   {
     title: "Pokedex",
     descriptionKey: "pokedex_desc",
@@ -101,7 +104,8 @@ const projects = ref<IProject[]>([
       <div
         v-for="(project, index) in projects"
         :key="index"
-        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[20vh] relative w-[40vw] group overflow-hidden"
+        class="project-card bg-primary-dark/40 dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-white/20 flex flex-col justify-between h-[20vh] relative w-[40vw] group overflow-hidden cursor-pointer"
+        @click="navigateToProject(project.link)"
       >
         <img :src="project.image" alt="project-placeholder" class="absolute bottom-0 right-0 w-full h-full object-cover z-0" />
         <div
@@ -113,6 +117,7 @@ const projects = ref<IProject[]>([
           >
             {{ $t(project.descriptionKey) }}
           </p>
+
           <div v-if="project.frontTech"
             class="flex gap-2 mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300"
           >

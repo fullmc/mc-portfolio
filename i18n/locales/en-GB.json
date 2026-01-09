@@ -2,19 +2,23 @@
   "about_link": "About",
   "projects_link": "Projects",
   "contact_link": "contact",
+  
   "home_id": "Marie-Claire\nLAMBO",
   "home_dev": "Frontend\nDeveloper",
   "home_description": "Passionate about creating modern and intuitive web experiences. I combine creativity and technical expertise to develop applications that leave a lasting impression.",
   "home_cv": "Download my CV",
   "download_cv": "Download CV",
   "view_projects": "View my projects",
+
   "nav_projects": "Projects",
   "nav_about": "About",
   "nav_contact": "Contact",
+
   "years_experience": "Years of experience",
   "projects_completed": "Projects completed",
   "technologies": "Technologies mastered",
   "available_for_work": "Available",
+
   "about_title": "About me",
   "about_intro": "My career path began in human resources, before taking an unexpected turn towards web development. After several self-taught training courses, I joined a specialized school to further my skills, and today, I thrive in this field.",
   "about_motiveTitle": "What motivates me",
@@ -22,6 +26,7 @@
   "about_working": "In general, I'm quite observant. I like to take the time to understand, listen, ask the right questions, communicate (!). I need a caring and trusting environment to fully express myself, and when I have it, I'm super involved, and always ready to collaborate.",
   "about_outsideTitle": "And outside of coding ?",
   "about_outside": "I am driven by discovery: I love traveling, sharing, and opening myself up to new points of view, through discussions, reading, or life experiences. Overall, I love learning from others and exploring anything that can enrich my vision of the world.",
+  
   "stack_title": "🛠️ Technical Skills",
   "my_projects": "My projects",
   "location_title": "Available on-site or remote, wherever you are :)",
@@ -29,19 +34,28 @@
   "contact": "Contact me",
   "last_name": "Name",
   "first_name": "",
+
   "contact_text": "and let's discuss your project.",
   "desc": "Describe your project...",
   "send": "Send",
-  "orbital_desc": "Interactive 3D project allowing you to navigate in an immersive universe.",
-  "orbital_tasks": "Frontend development, 3D animation.",
+
+  "pretto_desc": "Intégration d'une maquette de site web.",
+  "pretto_tasks": "Intégration front-end avec React.",
+
   "enigmaquest_desc": "Multiplayer real-time puzzle game.",
   "enigmaquest_tasks": "Fullstack development, WebSockets.",
+
   "vortex_desc": "Activity booking site.",
   "vortex_tasks": "Fullstack development, database.",
+
   "pokedex_desc": "Interactive Pokémon catalog.",
   "pokedex_tasks": "Frontend development, API.",
+
   "weatherapp_desc": "Weather application by city",
   "weatherapp_tasks": "Frontend development.",
+
   "phonesystem_desc": "Mini phone system with call and contact management.",
-  "phonesystem_tasks": "Frontend development."
+  "phonesystem_tasks": "Frontend development.",
+
+  "see_project": "View project"
 }

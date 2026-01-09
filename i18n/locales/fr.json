@@ -37,8 +37,8 @@
   "desc": "Décrivez votre projet...",
   "send": "Envoyer",
 
-  "orbital_desc": "Mini projet 3D immersif interactif",
-  "orbital_tasks": "Développement front-end, animation 3D.",
+  "pretto_desc": "Intégration d'une maquette de site web.",
+  "pretto_tasks": "Intégration front-end avec React.",
 
   "enigmaquest_desc": "Jeu d'énigmes multijoueur en temps réel.",
   "enigmaquest_tasks": "Développement fullstack, WebSockets.",
@@ -53,5 +53,7 @@
   "weatherapp_tasks": "Développement front-end.",
 
   "phonesystem_desc": "Mini système de téléphonie avec gestion d'appels et de contacts.",
-  "phonesystem_tasks": "Développement front-end."
+  "phonesystem_tasks": "Développement front-end.",
+
+  "see_project": "Voir le projet"
 }

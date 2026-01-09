@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import createGlobe from 'cobe'
 import { onMounted, ref, watch } from 'vue'
-import { useSpring } from 'vue-use-spring'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const pointerInteracting = ref<number | null>(null)
 const pointerInteractionMovement = ref(0)
 const phi = ref(0)
 const isDark = ref(false)
+const r = ref(0)
 
 // Détecter le mode sombre/clair
 const detectColorMode = () => {
@@ -16,15 +16,15 @@ const detectColorMode = () => {
   }
 }
 
-const api = useSpring(
-  { r: 0 },
-  {
-    mass: 1,
-    tension: 280,
-    friction: 40,
-    precision: 0.001,
-  },
-)
+// Simple spring animation using requestAnimationFrame
+const targetR = ref(0)
+const animateR = () => {
+  const diff = targetR.value - r.value
+  r.value += diff * 0.1 // Smooth interpolation
+  if (Math.abs(diff) > 0.001) {
+    requestAnimationFrame(animateR)
+  }
+}
 
 // Fonction pour créer le globe avec les bonnes couleurs
 const createGlobeInstance = () => {
@@ -59,7 +59,7 @@ const createGlobeInstance = () => {
         // `state` will be an empty object, return updated params.
         phi.value += 0.005
       }
-      state.phi = phi.value + api.r
+      state.phi = phi.value + r.value
     },
   })
   canvasRef.value!.style.opacity = '1'
@@ -104,7 +104,8 @@ function handleMouseMove(e: MouseEvent) {
   if (pointerInteracting.value !== null) {
     const delta = e.clientX - pointerInteracting.value
     pointerInteractionMovement.value = delta
-    api.r = delta / 200
+    targetR.value = delta / 200
+    animateR()
   }
 }
 
@@ -112,7 +113,8 @@ function handleTouchMove(e: TouchEvent) {
   if (pointerInteracting.value !== null && e.touches[0]) {
     const delta = e.touches[0].clientX - pointerInteracting.value
     pointerInteractionMovement.value = delta
-    api.r = delta / 100
+    targetR.value = delta / 100
+    animateR()
   }
 }
 </script>
