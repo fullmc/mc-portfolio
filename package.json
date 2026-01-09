@@ -39,7 +39,6 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@oxc-parser/binding-darwin-arm64": "^0.107.0",
     "@types/velocity-animate": "^2.0.1",
     "prettier": "3.5.0",
     "shadcn-nuxt": "^0.11.3"
